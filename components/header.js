@@ -1,14 +1,17 @@
 import Link from 'next/link'
-import Container from './container'
 
-export default function Header() {
-  return (
-    <Container>
-      <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
-        <Link href="/">
-          <a className="hover:underline">Header</a>
-        </Link>
-      </h2>
-    </Container>
-  )
-}
+const Header = () => (
+  <div className="mb-5">
+    <Link href='/' as='/'>
+      <a className="link p-2 m-2 rounded">Home</a>
+    </Link>
+    <Link href='/about' as='/about'>
+      <a className="link p-2 m-2 rounded">About</a>
+    </Link>
+    <Link href='/admin'>
+      <a className="link p-2 m-2 rounded">Admin</a>
+    </Link>
+  </div>
+)
+
+export default Header
