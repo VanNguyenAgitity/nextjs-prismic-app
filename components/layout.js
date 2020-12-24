@@ -1,11 +1,11 @@
 import Footer from './footer'
 import Header from './header'
-import Meta from './meta'
+import MetaHead from './meta-head'
 
 export default function Layout({ preview, children }) {
   return (
     <>
-      <Meta />
+      <MetaHead />
       <Header />
       <div className="min-h-screen">
         <main>{children}</main>
