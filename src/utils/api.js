@@ -40,7 +40,7 @@ async function fetchAPI(query, { previewData, variables } = {}) {
 
 export async function getAllDatasForHome(previewData) {
   const data = await fetchAPI(
-    `
+  `
     query {
       allPosts(sortBy: date_DESC) {
         edges {
