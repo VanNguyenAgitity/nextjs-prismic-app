@@ -1,19 +1,19 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 // Components
 import Container from '../../components/container'
 import Layout from '../../components/layout'
-import Nav from '../../components/nav'
 
-export default function PlusPage(preview) {
+export default function DownloadPage(preview) {
   return (
     <>
-      <Layout preview='plus'>
+      <Layout preview={preview}>
           <Head>
-            <title>Join Pixelbuddha Plus Membership</title>
+            <title>Free Icons: Line, Glyph, Flat Style on Pixelbuddha</title>
           </Head>
           <Container>
-            <h1 className='mb-5'>Plus Page</h1>
+            <h1 className='mb-5'>Download Page</h1>
           </Container>
       </Layout>
     </>
