@@ -4,7 +4,7 @@ This example showcases Next.js's [Static Generation](https://nextjs.org/docs/bas
 
 ## Demo
 
-### [https://nextjs-prismic-app/]
+### [https://nextjs-prismic-rouge.vercel.app/]
 
 ## Deploy your own
 

@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 const Nav = () => (
   <div className="mb-5 mt-5 flex justify-center">
-    <Link href='/all' as='/all'>
+    <Link href='/all'>
       <a className="text-white p-2 m-2 font-bold text-lg">Downloads</a>
     </Link>
-    <Link href='/plus' as='/plus'>
+    <Link href='/plus'>
       <a className="text-white p-2 m-2 font-bold text-lg">Plus</a>
     </Link>
     <Link href='/journal'>
