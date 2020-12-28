@@ -9,10 +9,7 @@ module.exports = withImages(
       return config
     }
   },
-  withLess(),
-  {
-    "pagesDir": './src/pages'
-  }
+  withLess()
 )
 
 
