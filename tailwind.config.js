@@ -16,6 +16,7 @@ module.exports = {
     extend: {
       colors: {
         'accent-1': '#333',
+        'orange': '#f14b11',
       },
       spacing: {
         '128': '32rem',
