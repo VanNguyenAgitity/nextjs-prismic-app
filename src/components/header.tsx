@@ -4,8 +4,8 @@ import Nav from './nav'
 import Search from './search'
 
 import COLORS from '../themes/colors'
-import { MainLogo } from '../assets/icons/main-logo.svg'
-import { MainBurger } from '../assets/icons/main-burger.svg'
+import MainLogo from '../assets/icons/main-logo.svg'
+import MainBurger from '../assets/icons/main-burger.svg'
 
 export default function Header(props) {
   return ( 
