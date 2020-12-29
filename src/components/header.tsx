@@ -4,21 +4,20 @@ import Nav from './nav'
 import Search from './search'
 
 import COLORS from '../themes/colors'
+import { MainLogo } from '../assets/icons/main-logo.svg'
+import { MainBurger } from '../assets/icons/main-burger.svg'
 
 export default function Header(props) {
   return ( 
-    <div className="z-40 flex justify-between items-center h-20 pl-5 bg-color sticky top-20">
-      <Link href="/">
-        <Image
-          alt="Logo"
-          className="h-12 w-12"
-          src='/logo-main.svg'
-          width={191}
-          height={22}
-        />      
-      </Link>     
+    <div className="z-40 flex justify-between items-center h-20 pl-5 bg-color sticky top-20 md:top-0">     
+      <button className='sx:hidden'>
+        <MainBurger/>
+      </button>
+      <a href="/">
+        <MainLogo/>
+      </a>
       <Nav/>
-      <div className="mr-40">
+      <div className="flex mr-4 w-6 h-6 self-center">
         <Search />
       </div>
       <style jsx>{`
