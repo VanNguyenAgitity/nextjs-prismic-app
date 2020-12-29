@@ -4,12 +4,10 @@ import MetaHead from './meta-head'
 import Banner from './banner'
 
 export default function Layout({ preview, children }) {
-  console.log('preview', preview)
   return (
     <>
       <MetaHead />
-      <Banner />
-      <Header type={preview}/>      
+      <Header/>      
       <div className="min-h-screen">
         <main>{children}</main>
       </div>
