@@ -1,18 +1,21 @@
 import Link from 'next/link'
 
 const Nav = () => (
-  <div className="mb-5 mt-5 flex justify-center sm:hidden">
-    <Link href='/all'>
-      <a className="text-white p-2 m-2 font-bold text-lg">Downloads</a>
+  <div className="flex justify-center">
+    <Link href='/'>
+      <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">Home</a>
     </Link>
-    <Link href='/plus'>
-      <a className="text-white p-2 m-2 font-bold text-lg">Plus</a>
+    <Link href='/'>
+      <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">Shop</a>
     </Link>
-    <Link href='/journal'>
-      <a className="text-white p-2 m-2 font-bold text-lg">Journal</a>
+    <Link href='/'>
+      <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">Portfolio</a>
     </Link>
-    <Link href='/premium'>
-      <a className="text-white p-2 m-2 font-bold text-lg">Premium</a>
+    <Link href='/'>
+      <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">Page</a>
+    </Link>
+    <Link href='/'>
+      <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">Elements</a>
     </Link>
   </div>
 )
