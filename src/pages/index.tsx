@@ -12,7 +12,7 @@ export default function Index({ preview, allDatas }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Free Icons: Line, Glyph, Flat Style on Pixelbuddha with {CMS_NAME}</title>
+          <title>Pixelbuddha — Free Icons: Line, Glyph, Flat Style on Pixelbuddha with {CMS_NAME}</title>
         </Head>
         <Container>        
           <div className="md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28">

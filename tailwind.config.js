@@ -4,14 +4,13 @@ module.exports = {
   darkMode: 'media', // 'media' or 'class'
   theme: {
     screens: {
-      'tablet': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'laptop': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'desktop': '1280px',
-      // => @media (min-width: 1280px) { ... }
+      'sx': {'min': '650px'},
+      'sm': {'max': '767px'},
+      'md': {'max': '992px'},
+      'ml': {'min': '993px', 'max': '1023px'},
+      'lg': {'min': '1024px', 'max': '1279px'},
+      'xl': {'min': '1280px', 'max': '1535px'},
+      '2xl': {'min': '1536px'},
     },
     extend: {
       colors: {

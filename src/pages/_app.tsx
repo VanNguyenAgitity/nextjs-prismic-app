@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { AppProps } from 'next/app'
-import Head from 'next/head'
 import '../assets/styles/globals.scss'
 
 // export default class MyApp extends React.Component<AppProps> {

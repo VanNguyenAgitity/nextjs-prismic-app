@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const Nav = () => (
-  <div className="mb-5 mt-5 flex justify-center">
+  <div className="mb-5 mt-5 flex justify-center sm:hidden">
     <Link href='/all'>
       <a className="text-white p-2 m-2 font-bold text-lg">Downloads</a>
     </Link>

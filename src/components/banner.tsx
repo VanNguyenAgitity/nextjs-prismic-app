@@ -3,7 +3,7 @@ import Image from 'next/image'
 import ImageHero from '../assets/images/top-banner.jpg'
 
 const Banner = () => (
-  <div className="z-50 flex justify-center bg-black sticky top-0">
+  <div className="z-50 flex justify-center bg-black sticky top-0 md:hidden">
     <Link href='/all' as='/all'>
       <Image
         alt="Logo"
