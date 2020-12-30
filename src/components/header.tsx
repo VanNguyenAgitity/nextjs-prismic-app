@@ -8,7 +8,7 @@ import MainBurger from '../assets/icons/svg/main-burger.svg'
 
 export default function Header(props) {
   return ( 
-    <div className="z-40 px-24 flex justify-between items-center h-20 bg-blue-600 sticky top-0">
+    <div className="z-40 px-24 flex justify-between items-center h-20 bg-blueless sticky top-0">
       <div className="flex w-144 flex justify-between items-center">
         <a href="/" className="font-playfair text-2xl text-white">
           Be.Pro
