@@ -11,6 +11,8 @@ module.exports = {
       colors: {
         'accent-1': '#333',
         'orange': '#f14b11',
+        'blueless': '#3853d8',
+        'blackless': '#363637',
       },
       spacing: {
         '128': '32rem',
