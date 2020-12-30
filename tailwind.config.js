@@ -6,13 +6,16 @@ module.exports = {
     fontFamily: {
       'playfair': ['Playfair Display', 'serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
-    },
+    },    
     extend: {
       colors: {
         'accent-1': '#333',
         'orange': '#f14b11',
         'blueless': '#3853d8',
         'blackless': '#363637',
+      },
+      fontSize: {
+        'xss': '.65rem',
       },
       spacing: {
         '128': '32rem',
