@@ -1,13 +1,16 @@
 import Container from './container'
+import Nav from './nav'
+import { NavFooter } from '../utils/constants'
 
 export default function Footer() {
   return (
-    <footer className="bg-accent-1 border-t border-accent-2">
+    <footer className="bg-blackless border-t border-blackless">
       <Container>
-        <div className="flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left lg:mb-0 lg:pr-4 lg:w-1/2">
-            Footer
-          </h3>        
+        <div className="flex w-144 flex justify-between items-center">
+          <a href="/" className="font-playfair text-2xl text-white">
+            ModaX
+          </a>
+          <Nav navList={NavFooter}/>
         </div>
       </Container>
     </footer>

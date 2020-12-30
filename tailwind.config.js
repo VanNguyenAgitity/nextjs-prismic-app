@@ -15,7 +15,7 @@ module.exports = {
         'blackless': '#363637',
       },
       fontSize: {
-        'xss': '.65rem',
+        'xss': '.625rem',
       },
       spacing: {
         '128': '32rem',
