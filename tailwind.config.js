@@ -18,8 +18,13 @@ module.exports = {
         'xss': '.625rem',
       },
       spacing: {
+        '98': '27rem',
+        '100': '28rem',
         '128': '32rem',
         '144': '36rem',
+        '214': '40rem',
+        '288': '43rem',
+        '320': '47rem',
       },
       borderRadius: {
         '4xl': '2rem',

@@ -11,22 +11,22 @@ export const NavHeader = [
 	},
 	{
 		label: "Shop",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "Portfolio",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "Page",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "Elements",
-		path: "/",
+		path: "#",
 		icon: ""
 	}
 ]
@@ -34,27 +34,27 @@ export const NavHeader = [
 export const NavFooter = [
 	{
 		label: "Man",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "Woman",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "LookBook",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "Sale",
-		path: "/",
+		path: "#",
 		icon: ""
 	},
 	{
 		label: "Blog",
-		path: "/",
+		path: "#",
 		icon: ""
 	}
 ]

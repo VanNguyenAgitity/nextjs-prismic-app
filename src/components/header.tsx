@@ -10,7 +10,7 @@ import { NavHeader } from '../utils/constants'
 export default function Header(props) {
 
   return (
-    <header className="z-40 px-24 flex justify-between items-center h-20 bg-blueless sticky top-0">
+    <header className="z-40 px-24 flex justify-between items-center h-20 bg-blueless">
       <div className="flex w-144 flex justify-between items-center">
         <a href="/" className="font-playfair text-2xl text-white">
           Be.Pro

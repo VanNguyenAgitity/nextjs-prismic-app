@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { AppProps } from 'next/app'
 import '../assets/styles/globals.scss'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 // export default class MyApp extends React.Component<AppProps> {
 //   render() {

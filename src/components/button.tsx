@@ -8,7 +8,8 @@ export default function Button(props) {
 				bg: ${props.type !== "text" ? props.bg : 'bg-transparent'}
 				color: ${props.color}
 				fontFamily: ${props.fontFamily}
-				fontSize: ${props.fontSize}`}
+				fontSize: ${props.fontSize}
+				focus: outline-none`}				
 				type={props.type} >
 				{props.text}
 			</button>
