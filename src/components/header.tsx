@@ -3,8 +3,6 @@ import Search from './search'
 import ShopCart from './shop-cart'
 
 import Button from '../components/button'
-import MainLogo from '../assets/icons/svg/main-logo.svg'
-import MainBurger from '../assets/icons/svg/main-burger.svg'
 import { NavHeader } from '../utils/constants'
 
 export default function Header(props) {
