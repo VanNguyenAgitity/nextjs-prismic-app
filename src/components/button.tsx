@@ -1,6 +1,6 @@
 export default function Button(props) {
 	return ( 
-		<div className="z-40 flex justify-between items-center h-20 pl-5 sticky top-20 md:top-0">        
+		<div className="z-40 flex justify-between items-center h-20 sticky top-20 md:top-0">        
 			<button className=
 			{`textTransform: ${props.textTransform}
 				hover:${props.hover}
@@ -9,8 +9,8 @@ export default function Button(props) {
 				color: ${props.color}
 				fontFamily: ${props.fontFamily}
 				fontSize: ${props.fontSize}
-				focus: outline-none`}				
-				type={props.type} >
+				focus: outline-none ${props.className}`}				
+				type={props.type}>
 				{props.text}
 			</button>
 		</div>

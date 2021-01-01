@@ -61,18 +61,23 @@ export const NavFooter = [
 
 export const PaymentsList = [
 	{
+		name: "visa",
 		src: require('../assets/icons/payment/visa.jpg')
 	},
 	{
+		name: "master",
 		src: require('../assets/icons/payment/master.jpg')
 	},
 	{
+		name: "post",
 		src: require('../assets/icons/payment/post.jpg')
 	},
 	{
+		name: "vip",
 		src: require('../assets/icons/payment/vip.jpg')
 	},
 	{
+		name: "amd",
 		src: require('../assets/icons/payment/amd.jpg')
 	}
 ]
