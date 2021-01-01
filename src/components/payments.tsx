@@ -4,6 +4,7 @@ const Payments = (props) => (
   <div className="flex justify-between w-52">
     { props.iconList.map(icon => (
       <Image
+        key={icon.name}
         alt="Logo"
         className="h-12 w-12 mr-2"
         src={icon.src}

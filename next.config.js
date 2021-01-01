@@ -3,7 +3,7 @@ const withLess = require('@zeit/next-less')
 module.exports = withImages(
   {
     images: {
-      domains: [''],
+      domains: ['images.prismic.io'],
     },
     webpack(config, options) {
       return config

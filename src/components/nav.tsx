@@ -19,9 +19,9 @@ import COLORS from '../themes/colors'
 // import Link from 'next/link'
 
 const Nav = (props) => (
-  <div className="flex justify-center">
+  <div className="flex">
       { props.navList.map(nav => (
-        <Link href={nav.path}>
+        <Link href={nav.path} key={nav.label}>
           {/* <div>{nav.icon}</div> */}
           <a className={`text-white uppercase font-montserrat p-2 m-2 text-xs
           ${props.router.pathname === nav.path ? "active" : ""}`}>{nav.label}</a>

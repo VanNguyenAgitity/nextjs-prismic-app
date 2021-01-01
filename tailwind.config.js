@@ -4,7 +4,8 @@ module.exports = {
   darkMode: 'media', // 'media' or 'class'
   theme: {
     fontFamily: {
-      'playfair': ['Playfair Display', 'serif'],
+      'playfair900Italic': ['Playfair Display', 'serif'],
+      'playfair700': ['Playfair700', 'serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
     },    
     extend: {
@@ -12,10 +13,12 @@ module.exports = {
         'accent-1': '#333',
         'orange': '#f14b11',
         'blueless': '#3853d8',
+        'bluelight': '#0021c4',
         'blackless': '#363637',
       },
       fontSize: {
         'xss': '.625rem',
+        '10xl': '10rem',
       },
       spacing: {
         '98': '27rem',
