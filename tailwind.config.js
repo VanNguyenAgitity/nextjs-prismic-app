@@ -7,6 +7,8 @@ module.exports = {
       'playfair900Italic': ['Playfair Display', 'serif'],
       'playfair700': ['Playfair700', 'serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
+      'montserrat300': ['Montserrat300', 'sans-serif'],
+      'montserrat400': ['Montserrat400', 'sans-serif']
     },    
     extend: {
       colors: {
@@ -15,6 +17,7 @@ module.exports = {
         'blueless': '#3853d8',
         'bluelight': '#0021c4',
         'blackless': '#363637',
+        'grayless': '#999999',
       },
       fontSize: {
         'xss': '.625rem',

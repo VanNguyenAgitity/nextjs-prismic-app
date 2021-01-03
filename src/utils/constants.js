@@ -81,3 +81,26 @@ export const PaymentsList = [
 		src: require('../assets/icons/payment/amd.jpg')
 	}
 ]
+
+export const FeatureList = [
+	{
+		label: "Free Shipping",
+		title: "Orders over $99",
+		icon: require('../assets/icons/feature/shipping.png'),
+	},
+	{
+		label: "30 days return",
+		title: "If goods have problem",
+		icon: require('../assets/icons/feature/return.png')
+	},
+	{
+		label: "Secure payment",
+		title: "100% secure payment",
+		icon: require('../assets/icons/feature/secure.png')
+	},
+	{
+		label: "24h Support",
+		title: "Dedicated Support",
+		icon: require('../assets/icons/feature/support.png')
+	},
+]
