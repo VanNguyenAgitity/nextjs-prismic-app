@@ -1,8 +1,15 @@
-import Layout from '../components/layout'
-import { getAllDatasForHome } from '../utils/api'
 import Head from 'next/head'
+
+import { getAllDatasForHome } from '../utils/api'
+
+// Constant
 import { CMS_NAME } from '../utils/constants'
+import { FeatureList } from '../utils/constants'
+
+// Components
+import Layout from '../components/layout'
 import Slide from '../components/slide'
+import Feature from '../components/feature'
 
 export default function Index({ preview, allDatas }) {
   const heroData = allDatas[0].node
@@ -14,11 +21,12 @@ export default function Index({ preview, allDatas }) {
         <Head>
           <title> Be.Pro with {CMS_NAME}</title>
         </Head>
-        <div className="bg-blueless">  
+        <div>  
           {/* <div className="mb-4 md:mb-0 text-lg">
             {heroData.date}
           </div> */}
           <Slide data={allDatas}/>
+          <Feature featureList={FeatureList}/>
         </div>
       </Layout>
     </>
