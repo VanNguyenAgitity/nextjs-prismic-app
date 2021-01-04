@@ -11,15 +11,21 @@ export default function Product({ product }) {
       <Link href={`product/${product.node._meta.uid}`}>
         <a className="flex flex-col">
           <Button className="px-2 absolute top-0 right-0" rounded="rounded" type="text" text="sale" color="text-white" fontFamily="font-Montserrat400" bg="bg-blueless" fontSize="text-xss"/>
-          <Image
-            alt={product.node.images.alt}
-            src={ImageEssential}
-            width={142}
-            height={164}
-            objectFit="contain"
-          />   
+          <div className="m-6">
+            <Image
+              alt={product.node.images.alt}
+              src={ImageEssential}
+              width={142}
+              height={164}
+              objectFit="contain"
+            />
+          </div>
         	<div className="flex flex-col ml-2">
-            <span className={`text-black font-montserrat400 text-xs`}>{product.node.date}</span>
+            <span className="text-gray-700 font-montserrat400 text-xs">{product.node.date}</span>
+            <div className="flex">
+              <span className="line-through text-gray-400 text-xss mr-4">$200.00 USD</span>
+              <span className="text-blueless text-xss ">$200.00 USD</span>
+            </div>
           </div>
         </a>
       </Link>
