@@ -7,24 +7,28 @@ import ImageEssential from '../assets/images/products/t-shirt-essential.png'
 export default function Product({ product }) {
   console.log('productproduct', product.node)
   return (
-    <li className="p-4 w-3/12 p-6 mr-4 bg-white border border-solid border-gray-200">
+    <li className={`p-6 bg-white border border-solid border-gray-200 ${product.node.style_new ? "col-span-3" : ""}`}>
       <Link href={`product/${product.node._meta.uid}`}>
         <a className="flex flex-col">
-          <Button className="px-2 absolute top-0 right-0" rounded="rounded" type="text" text="sale" color="text-white" fontFamily="font-Montserrat400" bg="bg-blueless" fontSize="text-xss"/>
-          <div className="m-6">
+          <Button className="px-2 absolute -top-3 -right-3" rounded="rounded" type="text" text="sale" color="text-white" fontFamily="font-Montserrat400" bg="bg-blueless" fontSize="text-xss"/>
+          <div className="m-p4 flex justify-center">
             <Image
               alt={product.node.images.alt}
-              src={ImageEssential}
+              src={product.node.images.url}
               width={142}
               height={164}
               objectFit="contain"
             />
           </div>
-        	<div className="flex flex-col ml-2">
-            <span className="text-gray-700 font-montserrat400 text-xs">{product.node.date}</span>
-            <div className="flex">
-              <span className="line-through text-gray-400 text-xss mr-4">$200.00 USD</span>
-              <span className="text-blueless text-xss ">$200.00 USD</span>
+        	<div className="flex flex-col">
+            <span className="text-gray-700 font-montserrat400 text-xs">{product.node.name}</span>
+            <div className="flex flex-wrap">
+              {product.node.price_sale &&
+                <span className="line-through text-gray-400 text-xss mr-4">{`$ ${product.node.price_sale} USD`}</span>
+              }
+              {product.node.price_regular &&
+                <span className="text-blueless text-xss">{`$ ${product.node.price_regular} USD`}</span>
+              }
             </div>
           </div>
         </a>

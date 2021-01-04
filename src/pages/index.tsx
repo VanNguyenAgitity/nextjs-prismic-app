@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { getAllDatasForHome } from '../utils/api'
+import { getAllDatasForHome, getAllDatasForProducts } from '../utils/api'
 
 // Constant
 import { CMS_NAME } from '../utils/constants'
@@ -12,10 +12,8 @@ import Slide from '../components/slide'
 import Feature from '../components/feature'
 import ProductList from '../components/products'
 
-export default function Index({ preview, allDatas }) {
-  const heroData = allDatas[0].node
-  const moreDatas = allDatas.slice(1)
-  console.log('allDatas', allDatas, 'moreDatasmoreDatasmoreDatas', moreDatas)
+export default function Index({ preview, allDatas, allProducts }) {
+  console.log('allDatas', allDatas, 'allProductsallProducts', allProducts)
   return (
     <>
       <Layout preview={preview}>
@@ -28,16 +26,17 @@ export default function Index({ preview, allDatas }) {
           </div> */}
           <Slide data={allDatas}/>
           <Feature featureList={FeatureList}/>
-          <ProductList allDatas={allDatas}/>
+          <ProductList allDatas={allProducts}/>
         </div>
       </Layout>
     </>
   )
 }
 
-export async function getStaticProps({ preview = false, previewData }) {
-  const allDatas = await getAllDatasForHome(previewData)
+export async function getStaticProps({ preview = false, previewDataPost, previewDataProduct }) {
+  const allDatas = await getAllDatasForHome(previewDataPost)
+  const allProducts = await getAllDatasForProducts(previewDataProduct)
   return {
-    props: { preview, allDatas },
+    props: { preview, allDatas, allProducts},
   }
 }
