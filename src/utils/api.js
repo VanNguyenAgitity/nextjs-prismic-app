@@ -12,6 +12,7 @@ export const PrismicClient = Prismic.client(REF_API_URL, {
 })
 
 async function fetchAPI(query, { previewData, variables } = {}) {
+  console.log('999999999999999999999999999', query, 'previewDatapreviewData', previewData)
   const prismicAPI = await PrismicClient.getApi()
   const res = await fetch(
     `${GRAPHQL_API_URL}?query=${query}&variables=${JSON.stringify(variables)}`,
@@ -39,6 +40,7 @@ async function fetchAPI(query, { previewData, variables } = {}) {
 }
 
 export async function getAllDatasForHome(previewData) {
+  console.log('previewDatapreviewData333333333333', previewData)
   const data = await fetchAPI(
   `
     query {
@@ -60,4 +62,33 @@ export async function getAllDatasForHome(previewData) {
   )
 
   return data.allPosts.edges
+}
+
+
+export async function getAllDatasForProducts(previewData) {
+  console.log('previewDatapreviewData333333333333', previewData)
+  const data = await fetchAPI(
+  `
+    query {
+      allProductss(sortBy: date_DESC) {
+        edges {
+          node {
+            date
+            name
+            price_regular
+            price_sale
+            images
+            style_new
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  `,
+    { previewData }
+  )
+
+  return data.allProductss.edges
 }
