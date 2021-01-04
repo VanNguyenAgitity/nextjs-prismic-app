@@ -10,6 +10,7 @@ import { FeatureList } from '../utils/constants'
 import Layout from '../components/layout'
 import Slide from '../components/slide'
 import Feature from '../components/feature'
+import ProductList from '../components/products'
 
 export default function Index({ preview, allDatas }) {
   const heroData = allDatas[0].node
@@ -27,6 +28,7 @@ export default function Index({ preview, allDatas }) {
           </div> */}
           <Slide data={allDatas}/>
           <Feature featureList={FeatureList}/>
+          <ProductList allDatas={allDatas}/>
         </div>
       </Layout>
     </>
