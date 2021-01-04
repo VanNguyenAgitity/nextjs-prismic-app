@@ -15,7 +15,7 @@ export default function Header(props) {
         <Nav navList={NavHeader}/>
       </div>
       <div className="flex self-center w-72 justify-between">
-        <div className="flex w-40">
+        <div className="flex w-32 justify-between">
           <Button type="text" text="Log in" color="text-white" fontFamily="font-montserrat" fontSize="text-xs" textTransform="uppercase"/>
           <Button type="text" text="Sign up" color="text-white" fontFamily="font-montserrat" fontSize="text-xs" textTransform="uppercase"/>
         </div>
