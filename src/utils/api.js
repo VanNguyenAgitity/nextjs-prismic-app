@@ -70,7 +70,7 @@ export async function getAllDatasForProducts(previewData) {
   const data = await fetchAPI(
   `
     query {
-      allProductss(sortBy: date_DESC) {
+      allProductss(sortBy: name_DESC) {
         edges {
           node {
             date
@@ -79,6 +79,7 @@ export async function getAllDatasForProducts(previewData) {
             price_sale
             images
             style_new
+            type_popular
             _meta {
               uid
             }
