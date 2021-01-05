@@ -1,4 +1,7 @@
 import { useCallback, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons'
+
 import Image from 'next/image'
 import Product from '../components/product'
 import IconFire from '../assets/images/fire.png'
@@ -31,8 +34,8 @@ export default function Index({ allDatas }) {
 						height={43}
 						objectFit="contain"
 					/>
-					<span className="uppercase text-white text-xm text-center">Popular Product</span>
-					<button className="text-white text-xs" onClick={moreProduct}>More Product</button>
+					<span className="uppercase text-white text-xm text-center ">Popular Product</span>
+					<button className="text-white text-xs font-montserrat400" onClick={moreProduct}>More Product</button>
 				</li>
 				{productTypePopular.slice(0, loadNum).map((p, i) => (
 					<Product key={i} product={p}/>
@@ -41,7 +44,10 @@ export default function Index({ allDatas }) {
 					<Product key={i} product={p}/>
 				))}
 			</ul>
-			<button className="w-full m-auto" onClick={loadMoreProduct}>Load More</button>
+			<div className="flex m-auto w-28 mb-8">
+				<FontAwesomeIcon icon={faSyncAlt} size="sm" color='gray' className="w-4 h-4"/>	
+				<button className="w-full uppercase text-xs font-montserrat" onClick={loadMoreProduct}>Load More</button>
+			</div>
 		</>
   )
 }

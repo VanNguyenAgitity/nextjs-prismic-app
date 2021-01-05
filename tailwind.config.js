@@ -8,7 +8,8 @@ module.exports = {
       'playfair700': ['Playfair700', 'serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
       'montserrat300': ['Montserrat300', 'sans-serif'],
-      'montserrat400': ['Montserrat400', 'sans-serif']
+      'montserrat400': ['Montserrat400', 'sans-serif'],
+      'montserrat700': ['Montserrat700', 'sans-serif']
     },    
     extend: {
       colors: {
