@@ -5,6 +5,7 @@ import Button from '../components/button'
 
 export default function Product({ product }) {
   console.log('productproduct', product.node)
+  const objectFit = product.node.style_new ? 'cover' : 'contain'
   return (
     <li className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
       <Link href={`product/${product.node._meta.uid}`}>
@@ -19,7 +20,7 @@ export default function Product({ product }) {
               src={product.node.images.url}
               width={`${product.node.style_new ? 536 : 142}`}
               height={`${product.node.style_new ? '100%' : 164}`}
-              objectFit={`${product.node.style_new ? "cover" : "contain"}`}
+              objectFit={objectFit}
             />
           </div>
         	<div className={`flex flex-col ${product.node.style_new ? 'py-10' : ''}`}>
