@@ -21,8 +21,8 @@ export default function Index({ preview, allDatas, allProducts }) {
     fade: true,
     cssEase: 'linear'
   }
-  const dataBannerMain = allDatas.filter(({ node }) => node.type === 'Banner main');
-  const dataBannerSub = allDatas.filter(({ node }) => node.type === 'Banner sub');
+  const dataBannerMain = allDatas.filter(({ node }) => !node.cover);
+  const dataBannerSub = allDatas.filter(({ node }) => node.cover);
   return (
     <>
       <Layout preview={preview}>
