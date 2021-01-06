@@ -50,6 +50,7 @@ export async function getAllDatasForHome(previewData) {
             date
             title
             type
+            cover
             images
             _meta {
               uid
