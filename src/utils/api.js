@@ -49,6 +49,7 @@ export async function getAllDatasForHome(previewData) {
           node {
             date
             title
+            type
             images
             _meta {
               uid

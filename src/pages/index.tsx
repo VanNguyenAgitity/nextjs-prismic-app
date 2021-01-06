@@ -14,6 +14,15 @@ import ProductList from '../components/products'
 
 export default function Index({ preview, allDatas, allProducts }) {
   console.log('allDatas', allDatas, 'allProductsallProducts', allProducts)
+  const settings = {
+		dots: true,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear'
+  }
+  const dataBannerMain = allDatas.filter(({ node }) => node.type === 'Banner main');
+  const dataBannerSub = allDatas.filter(({ node }) => node.type === 'Banner sub');
   return (
     <>
       <Layout preview={preview}>
@@ -24,9 +33,10 @@ export default function Index({ preview, allDatas, allProducts }) {
           {/* <div className="mb-4 md:mb-0 text-lg">
             {heroData.date}
           </div> */}
-          <Slide data={allDatas}/>
+          <Slide data={dataBannerMain} setting={settings}/>
           <Feature featureList={FeatureList}/>
           <ProductList allDatas={allProducts}/>
+          <Slide data={dataBannerSub} setting={settings}/>
         </div>
       </Layout>
     </>
