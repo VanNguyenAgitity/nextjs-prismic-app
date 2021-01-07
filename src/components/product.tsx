@@ -44,7 +44,7 @@ export default function Product({ product }) {
                   <span className="text-blueless text-xss">{`$ ${product.node.price_regular} USD`}</span>
                 }
               </div>
-            }
+            }            
           </div>
         </a>
       </Link>

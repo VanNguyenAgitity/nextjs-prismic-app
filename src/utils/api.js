@@ -92,6 +92,31 @@ export async function getAllDatasForProducts(previewData) {
   `,
     { previewData }
   )
-
   return data.allProductss.edges
+}
+
+export async function getAllDataForPattern(previewData) {
+  const data = await fetchAPI(
+  `
+    query {
+      allPatterns(sortBy: date_DESC) {
+        edges {
+          node {
+            date
+            price
+            image
+            type
+            title
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  `,
+    { previewData }
+  )
+
+  return data.allPatterns.edges
 }

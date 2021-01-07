@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { getAllDatasForHome, getAllDatasForProducts } from '../utils/api'
+import { getAllDatasForHome, getAllDatasForProducts, getAllDataForPattern } from '../utils/api'
 
 // Constant
 import { CMS_NAME } from '../utils/constants'
@@ -12,8 +12,9 @@ import Slide from '../components/slide'
 import Feature from '../components/feature'
 import LogoList from '../components/logos'
 import ProductList from '../components/products'
+import ProductPattern from '../components/product-pattern'
 
-export default function Index({ preview, allDatas, allProducts }) {
+export default function Index({ preview, allDatas, allProducts, allPattern }) {
   console.log('allDatas', allDatas, 'allProductsallProducts', allProducts)
   const settings = {
 		dots: true,
@@ -38,6 +39,7 @@ export default function Index({ preview, allDatas, allProducts }) {
           <Feature featureList={FeatureList}/>
           <ProductList allDatas={allProducts}/>
           <Slide data={dataBannerSub} setting={settings}/>
+          <ProductPattern allDatas={allPattern}/>
           <LogoList/>
         </div>
       </Layout>
@@ -45,10 +47,11 @@ export default function Index({ preview, allDatas, allProducts }) {
   )
 }
 
-export async function getStaticProps({ preview = false, previewDataPost, previewDataProduct }) {
+export async function getStaticProps({ preview = false, previewDataPost, previewDataProduct, previewDataPattern }) {
   const allDatas = await getAllDatasForHome(previewDataPost)
   const allProducts = await getAllDatasForProducts(previewDataProduct)
+  const allPattern = await getAllDataForPattern(previewDataPattern)
   return {
-    props: { preview, allDatas, allProducts},
+    props: { preview, allDatas, allProducts, allPattern},
   }
 }
