@@ -8,57 +8,55 @@ import IconCropit from '../assets/icons/svg/logos/cropit.svg'
 
 const settings = {
 	dots: true,
-		infinite: true,
-		speed: 500,
-		slidesToShow:4,
-		slidesToScroll: 1
-	}
-
-export const LogoTypeList = [
-	{
-		name: "studio",
-		logo: IconStudio
-	},
-	{
-		name: "villatex",
-		logo: IconVallitex
-	},
-	{
-		name: "franred",
-		logo: IconFranred
-	},
-	{
-		name: "cropit",
-		logo: IconCropit
-	},
-	{
-		name: "studio",
-		logo: IconStudio
-	},
-	{
-		name: "villatex",
-		logo: IconVallitex
-	},
-	{
-		name: "franred",
-		logo: IconFranred
-	},
-	{
-		name: "cropit",
-		logo: IconCropit
-	}
-]
+	infinite: true,
+	speed: 500,
+	slidesToShow:4,
+	slidesToScroll: 1
+}
 
 const Logos = () => (
 	<div className="w-11/12 m-auto py-2 logos">		     
-		<Slider {... settings} data={LogoTypeList}>
-			{ LogoTypeList.map(item => (
-				<Link href="#" key="item.name">
-					<a className="flex justify-center">
-						<item.logo/>
-					</a>
-				</Link>
-			))}
+		<Slider {... settings}>			
+			<Link href="#">
+				<a className="flex justify-center">
+					<IconStudio/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconVallitex/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconFranred/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconCropit/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconStudio/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconVallitex/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconFranred/>
+				</a>
+			</Link>
+			<Link href="#" key="item.name">
+				<a className="flex justify-center">
+					<IconCropit/>
+				</a>
+			</Link>
 		</Slider>
 	</div>
 )
