@@ -19,6 +19,7 @@ module.exports = {
         'bluelight': '#0021c4',
         'blackless': '#363637',
         'grayless': '#999999',
+        'pinkdark': '#d4bdad'
       },
       fontSize: {
         'xss': '.625rem',
@@ -36,6 +37,19 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      minWidth: {
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+        'xs': '48rem',
+      },
+      screens: {
+        'maxd': {'max': '767px'},
+        // => @media (max-width: 767px) { ... }
+  
+        'maxm': {'max': '639px'},
+        // => @media (max-width: 639px) { ... }
       }
     },
   },
