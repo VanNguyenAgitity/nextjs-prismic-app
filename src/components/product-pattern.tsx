@@ -6,7 +6,7 @@ export default function ProductPattern({ allDatas }) {
 		<>
 			<ul className="flex flex-wrap w-11/12 flex my-6 mx-auto grid grid-cols-2 gap-2 ">
 				{allDatas.map((item, i) => (
-					<li className="relative h-80 flex mr-2 flex-col items-end bg-pinkdark border border-solid border-gray-200">
+					<li key={i} className="relative h-80 flex mr-2 flex-col items-end bg-pinkdark border border-solid border-gray-200">
 						<Image
 							alt={item.node.image.alt}
 							src={item.node.image.url}
