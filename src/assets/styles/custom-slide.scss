@@ -5,3 +5,11 @@
 	left: 10px;
 	z-index: 1;
 }
+
+.logos {
+	.slick-arrow {
+		&:before {
+			color: gray;
+		}
+	}
+}
