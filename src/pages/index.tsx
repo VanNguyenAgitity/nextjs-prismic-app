@@ -10,6 +10,7 @@ import { FeatureList } from '../utils/constants'
 import Layout from '../components/layout'
 import Slide from '../components/slide'
 import Feature from '../components/feature'
+import LogoList from '../components/logos'
 import ProductList from '../components/products'
 
 export default function Index({ preview, allDatas, allProducts }) {
@@ -37,6 +38,7 @@ export default function Index({ preview, allDatas, allProducts }) {
           <Feature featureList={FeatureList}/>
           <ProductList allDatas={allProducts}/>
           <Slide data={dataBannerSub} setting={settings}/>
+          <LogoList/>
         </div>
       </Layout>
     </>
