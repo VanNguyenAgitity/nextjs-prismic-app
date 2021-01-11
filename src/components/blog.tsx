@@ -21,7 +21,7 @@ export default function Blog({ data }) {
     setLoadNum(prevRange => prevRange + 2);
   },[])
   const productTypeCommboSale = data[0].node.body.filter(({ type }) => type === 'combo_sale');
-  
+
   return (
     <div className="flex flex-wrap w-11/12 flex my-6 mx-auto grid grid-cols-4 gap-4">
       <div className={`border border-solid border-gray-200`}>
@@ -31,9 +31,9 @@ export default function Blog({ data }) {
               <Image
                 alt={productTypeCommboSale[0].fields[0].image.alt}
                 src={productTypeCommboSale[0].fields[0].image.url}
-                width={298}
+                width={"auto"}
                 height={500}
-                objectFit={'contain'}
+                objectFit="cover"
               />
             </div>
             <div className="flex flex-col items-left sm:w-72 w-48 maxd:top-1/4 top-1/2 left-4 px-2 absolute z-30">
@@ -49,7 +49,7 @@ export default function Blog({ data }) {
         <h5 className="flex items h-16 border-b pl-12 items-center">Popular</h5>
         <Slider {... settings}>
           {data.map((item, i) => (
-            <div key={i} className="relative h-96 p-10">
+            <div key={i} className="relative h-98 p-10">
               <div className="flex justify-between h-full">
                 <div className="w-10/12 bg-cover h-full">
                   <Image
