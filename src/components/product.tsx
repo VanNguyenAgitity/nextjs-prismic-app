@@ -3,10 +3,10 @@ import Image from 'next/image'
 
 import Button from '../components/button'
 
-export default function Product({ product }) {
+export default function Product({ key, product }) {
   const objectFit = product.node.style_new ? 'cover' : 'contain'
   return (
-    <li className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
+    <li key={key} className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
       <Link href={`/product/${product.node._meta.uid}`}>
         <a className={`flex ${product.node.style_new ? "h-full justify-end relative" : "flex-col"}`}>
           {product.node.price_sale &&
