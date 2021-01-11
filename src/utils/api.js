@@ -88,6 +88,8 @@ export async function getAllDatasForProducts(previewData) {
             }
             blog_popular
             likes
+            rating_star
+            unliked
             comments
             title
             body {

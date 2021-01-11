@@ -1,7 +1,7 @@
 import Footer from './footer'
 import Header from './header'
 import MetaHead from './meta-head'
-import Banner from './banner'
+import LogoList from '../components/logos'
 
 export default function Layout({ preview, children }) {
   return (
@@ -11,6 +11,7 @@ export default function Layout({ preview, children }) {
       <div className="min-h-screen">
         <main>{children}</main>
       </div>
+      <LogoList/>
       <Footer />
     </>
   )

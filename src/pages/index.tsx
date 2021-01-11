@@ -10,13 +10,12 @@ import { FeatureList } from '../utils/constants'
 import Layout from '../components/layout'
 import Slide from '../components/slide'
 import Feature from '../components/feature'
-import LogoList from '../components/logos'
 import ProductList from '../components/products'
 import ProductPattern from '../components/product-pattern'
 import Blog from '../components/blog'
 
-export default function Index({ preview, allDatas, allProducts, allPattern }) {
-  console.log('allDatas', allDatas, 'allProductsallProducts', allProducts)
+export default function Index({ preview, allDatas, allProducts, allPattern, props }) {
+  console.log('allProductsallProducts', allProducts)
   const settings = {
 		dots: true,
     infinite: true,
@@ -39,11 +38,10 @@ export default function Index({ preview, allDatas, allProducts, allPattern }) {
           </div> */}
           <Slide data={dataBannerMain} setting={settings}/>
           <Feature featureList={FeatureList}/>
-          <ProductList allDatas={allProducts}/>
+          <ProductList allDatas={allProducts} loadMoreNumber={4}/>
           <Slide data={dataBannerSub} setting={settings}/>
           <ProductPattern allDatas={allPattern}/>
-          <Blog  data={productBlogPopular}/>
-          <LogoList/>
+          <Blog  data={productBlogPopular}/>          
         </div>
       </Layout>
     </>

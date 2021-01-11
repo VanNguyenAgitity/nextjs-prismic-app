@@ -15,7 +15,7 @@ export default function SimpleSlider(props) {
               <>
                 <div className="w-full flex flex-col items-center top-1/2 text-center absolute z-30">
                   <h3 className="font-playfair font-bold text-7xl text-white">New Arrival</h3>
-                  <Button className="px-8 py-2" type="button" bg="bg-blueless" rounded="rounded-full" text="Buy Now" color="text-white" fontWeight="font-semibold" fontFamily="font-montserrat" fontSize="text-xss" textTransform="uppercase"/>
+                  <Button className="px-8 py-2 mt-4" type="button" bg="bg-blueless" rounded="rounded-full" text="Buy Now" color="text-white" fontWeight="font-semibold" fontFamily="font-montserrat" fontSize="text-xss" textTransform="uppercase"/>
                 </div>
                 <Image
                   alt={item.node.images.alt}

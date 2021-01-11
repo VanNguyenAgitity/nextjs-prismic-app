@@ -21,7 +21,7 @@ export default function Blog({ data }) {
     setLoadNum(prevRange => prevRange + 2);
   },[])
   const productTypeCommboSale = data[0].node.body.filter(({ type }) => type === 'combo_sale');
-
+  
   return (
     <div className="flex flex-wrap w-11/12 flex my-6 mx-auto grid grid-cols-4 gap-4">
       <div className={`border border-solid border-gray-200`}>
@@ -36,7 +36,7 @@ export default function Blog({ data }) {
                 objectFit="cover"
               />
             </div>
-            <div className="flex flex-col w-full  top-1/4 text-center absolute z-30">
+            <div className="flex flex-col w-full maxd:top-1/2 top-1/4 text-center absolute z-30">
               <h4 className="font-montserrat font-bold uppercase text-sx mb-2 text-white">{productTypeCommboSale[0].primary.combo_event}</h4>
               <h5 className="font-montserrat uppercase maxd:text-5xl text-8xl mb-2 text-white">{productTypeCommboSale[0].primary.combo_name}</h5>
               <p className="font-montserrat maxd:text-xl text-2xl text-white break-words p-p10">{productTypeCommboSale[0].primary.combo_title}</p>
@@ -63,11 +63,13 @@ export default function Blog({ data }) {
                   <div className="flex flex-col items-left sm:w-72 w-48 maxd:top-1/4 top-1/2 left-16 px-2 absolute z-30">
                     <h5 className="font-montserrat uppercase text-xss mb-2 text-white">{item.node.date}</h5>
                     <p className="font-playfair700 text-sx text-white break-words">{item.node.title}</p>
-                    <div className="mt-2 flex items-center w-28 divide-x">                          
-                      <div className="flex items-center pr-4">
-                        <FontAwesomeIcon icon={faComments} size="xs" color='white' className="w-2 h-2"/>
-                        <span className="font-montserrat text-xsm text-white ml-2">{item.node.comments}</span>
-                      </div>
+                    <div className="mt-2 flex items-center w-28 divide-x">
+                      { item.node.comments &&                   
+                        <div className="flex items-center pr-4">
+                          <FontAwesomeIcon icon={faComments} size="xs" color='white' className="w-2 h-2"/>
+                          <span className="font-montserrat text-xsm text-white ml-2">{item.node.comments.length}</span>
+                        </div>
+                      }
                       <div className="flex flex-row items-center px-4">
                         <FontAwesomeIcon icon={faHeart} size="xs" color='white' className="w-2 h-2"/>
                         <span className="font-montserrat text-xsm text-white ml-2">{item.node.likes}</span>

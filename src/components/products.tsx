@@ -6,17 +6,17 @@ import Image from 'next/image'
 import Product from '../components/product'
 import IconFire from '../assets/images/fire.png'
 
-export default function Index({ allDatas }) {
-	const [ loadNum, setLoadNum] = useState(4); // Default number of posts dislplayed
+export default function Products({ allDatas, loadMoreNumber }) {
+	const [ loadNum, setLoadNum] = useState(loadMoreNumber); // Default number of posts dislplayed
 
 	const [ loadNumMore, setLoadNumMore] = useState(4);
 
-	const productTypePopular = allDatas.filter(({ node }) => node.type_popular);
-	const productTypeNewStyle = allDatas.filter(({ node }) => !node.type_popular);
+	const productTypePopular = allDatas.filter(({ node }) => node.type_popular && !node.blog_popular)
+	const productTypeNewStyle = allDatas.filter(({ node }) => !node.type_popular && !node.blog_popular)
+	const prodcutStyleLength = productTypeNewStyle && productTypeNewStyle.length
 
-	console.log('productTypePopularproductTypePopular', productTypeNewStyle)
   const moreProduct = useCallback(() => {
-    setLoadNum(prevRange => prevRange + 4);
+    setLoadNum(prevRange => prevRange + loadMoreNumber);
 	},[])
 
 	const loadMoreProduct = useCallback(() => {
@@ -44,10 +44,12 @@ export default function Index({ allDatas }) {
 					<Product key={i} product={p}/>
 				))}
 			</ul>
-			<div className="flex m-auto w-28 mb-8">
-				<FontAwesomeIcon icon={faSyncAlt} size="sm" color='gray' className="w-4 h-4"/>	
-				<button className="focus:outline-none w-full uppercase text-xs font-montserrat font-semibold" onClick={loadMoreProduct}>Load More</button>
-			</div>
+			{prodcutStyleLength > 0 &&
+				<div className="flex m-auto w-28 mb-8">
+					<FontAwesomeIcon icon={faSyncAlt} size="sm" color='gray' className="w-4 h-4"/>	
+					<button className="focus:outline-none w-full uppercase text-xs font-montserrat font-semibold" onClick={loadMoreProduct}>Load More</button>
+				</div>
+			}
 		</>
   )
 }

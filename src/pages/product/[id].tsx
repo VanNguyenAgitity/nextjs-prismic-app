@@ -1,15 +1,33 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+import Head from 'next/head'
 
-export default function Product() {
+import { getAllDatasForProducts } from '../../utils/api'
+
+// Components
+import Layout from '../../components/layout'
+import ProductList from '../../components/products'
+
+export default function Product({ preview, allProducts }){
   const { query } = useRouter()
-  console.log('queryquery', query)
+  const dataProduct = allProducts.filter(({ node }) => node._meta.uid === query.id)
+  const productTypePopular = allProducts.filter(({ node }) => node.type_popular && !node.blog_popular);
+  console.log('Product Detail queryquery', dataProduct )
+  
   return (
-    <>   
-      <h2 className="mb-10">Product Page</h2>  
-      <Link href="/">        
-        <a className='link'>Back to products list</a>
-      </Link>
+    <>
+      <Layout preview={'product'}>
+        <Head>
+          <title> Product Detail</title>
+        </Head>
+        <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
+      </Layout>
     </>
   )
+}
+
+export async function getServerSideProps({previewDataProduct }) {
+  const allProducts = await getAllDatasForProducts(previewDataProduct)
+  return {
+    props: { allProducts },
+  }
 }
