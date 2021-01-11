@@ -81,9 +81,41 @@ export async function getAllDatasForProducts(previewData) {
             price_sale
             images
             style_new
-            type_popular
+            type_popular            
             _meta {
               uid
+              type
+            }
+            blog_popular
+            likes
+            comments
+            title
+            body {
+              ... on ProductsBodyBlog {
+                type
+                primary{
+                  comments
+                  likes
+                  title_post
+                }
+                fields{
+                  image
+                  date_post
+                }
+              }
+              ... on ProductsBodyCombo_sale {
+                type
+                primary{
+                  combo_title
+                  combo_name
+                  combo_event
+                }
+                fields{
+                  image
+                  combo_date
+                }
+              }
+              __typename
             }
           }
         }
@@ -92,6 +124,7 @@ export async function getAllDatasForProducts(previewData) {
   `,
     { previewData }
   )
+
   return data.allProductss.edges
 }
 

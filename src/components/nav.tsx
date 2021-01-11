@@ -23,7 +23,7 @@ const Nav = (props) => (
       { props.navList.map(nav => (
         <Link href={nav.path} key={nav.label}>
           {/* <div>{nav.icon}</div> */}
-          <a className={`text-white uppercase font-montserrat p-2 m-2 text-xs
+          <a className={`text-white uppercase font-montserrat font-semibold p-2 m-2 text-xs
           ${props.router.pathname === nav.path ? "active" : ""}`}>{nav.label}</a>
         </Link>
       ))}

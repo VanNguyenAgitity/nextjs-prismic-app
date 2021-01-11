@@ -4,12 +4,8 @@ module.exports = {
   darkMode: 'media', // 'media' or 'class'
   theme: {
     fontFamily: {
-      'playfair900Italic': ['Playfair Display', 'serif'],
-      'playfair700': ['Playfair700', 'serif'],
+      'playfair': ['Playfair Display', 'serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
-      'montserrat300': ['Montserrat300', 'sans-serif'],
-      'montserrat400': ['Montserrat400', 'sans-serif'],
-      'montserrat700': ['Montserrat700', 'sans-serif']
     },    
     extend: {
       colors: {
@@ -22,6 +18,7 @@ module.exports = {
         'pinkdark': '#d4bdad'
       },
       fontSize: {
+        'xsm': '.5rem',
         'xss': '.625rem',
         '10xl': '10rem',
       },

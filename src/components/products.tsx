@@ -35,7 +35,7 @@ export default function Index({ allDatas }) {
 						objectFit="contain"
 					/>
 					<span className="uppercase text-white text-xm text-center ">Popular Product</span>
-					<button className="focus:outline-none text-white text-xs font-montserrat400" onClick={moreProduct}>More Product</button>
+					<button className="focus:outline-none text-white text-xs font-montserrat font-normal" onClick={moreProduct}>More Product</button>
 				</li>
 				{productTypePopular.slice(0, loadNum).map((p, i) => (
 					<Product key={i} product={p}/>
@@ -46,7 +46,7 @@ export default function Index({ allDatas }) {
 			</ul>
 			<div className="flex m-auto w-28 mb-8">
 				<FontAwesomeIcon icon={faSyncAlt} size="sm" color='gray' className="w-4 h-4"/>	
-				<button className="focus:outline-none w-full uppercase text-xs font-montserrat" onClick={loadMoreProduct}>Load More</button>
+				<button className="focus:outline-none w-full uppercase text-xs font-montserrat font-semibold" onClick={loadMoreProduct}>Load More</button>
 			</div>
 		</>
   )

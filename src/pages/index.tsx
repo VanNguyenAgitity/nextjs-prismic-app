@@ -13,6 +13,7 @@ import Feature from '../components/feature'
 import LogoList from '../components/logos'
 import ProductList from '../components/products'
 import ProductPattern from '../components/product-pattern'
+import Blog from '../components/blog'
 
 export default function Index({ preview, allDatas, allProducts, allPattern }) {
   console.log('allDatas', allDatas, 'allProductsallProducts', allProducts)
@@ -25,6 +26,7 @@ export default function Index({ preview, allDatas, allProducts, allPattern }) {
   }
   const dataBannerMain = allDatas.filter(({ node }) => !node.cover);
   const dataBannerSub = allDatas.filter(({ node }) => node.cover);
+  const productBlogPopular = allProducts.filter(({ node }) => node.blog_popular);
   return (
     <>
       <Layout preview={preview}>
@@ -40,6 +42,7 @@ export default function Index({ preview, allDatas, allProducts, allPattern }) {
           <ProductList allDatas={allProducts}/>
           <Slide data={dataBannerSub} setting={settings}/>
           <ProductPattern allDatas={allPattern}/>
+          <Blog  data={productBlogPopular}/>
           <LogoList/>
         </div>
       </Layout>

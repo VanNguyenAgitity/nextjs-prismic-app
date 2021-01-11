@@ -15,44 +15,44 @@ const settings = {
 }
 
 const Logos = () => (
-	<div className="w-11/12 m-auto py-2 logos">		     
+	<div className="w-11/12 m-auto py-2 mb-2 logos">		     
 		<Slider {... settings}>			
-			<Link href="#">
+			<Link href="/">
 				<a className="flex justify-center">
 					<IconStudio/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconVallitex/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconFranred/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconCropit/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconStudio/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconVallitex/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconFranred/>
 				</a>
 			</Link>
-			<Link href="#" key="item.name">
+			<Link href="/" key="item.name">
 				<a className="flex justify-center">
 					<IconCropit/>
 				</a>

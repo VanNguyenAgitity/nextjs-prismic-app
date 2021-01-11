@@ -4,27 +4,27 @@ import { faFacebookF, faTwitter, faBehance, faLinkedinIn, faGalacticRepublic } f
 
 const SocialIcons = () => (
 	<div className='flex'>
-		<Link href="#">
+		<Link href="/">
 			<a className="pr-3">				
 				<FontAwesomeIcon icon={faFacebookF} size="xs" color='gray' className="w-4 h-4"/>		
 			</a>
 		</Link>
-		<Link href="#">
+		<Link href="/">
 			<a className="pr-3">				
 				<FontAwesomeIcon icon={faTwitter} size="xs" color='gray' className="w-4 h-4"/>		
 			</a>
 		</Link>
-		<Link href="#">
+		<Link href="/">
 			<a className="pr-3">				
 				<FontAwesomeIcon icon={faBehance} size="xs" color='gray' className="w-4 h-4"/>		
 			</a>
 		</Link>
-		<Link href="#">
+		<Link href="/">
 			<a className="pr-3">				
 				<FontAwesomeIcon icon={faLinkedinIn} size="xs" color='gray' className="w-4 h-4"/>		
 			</a>
 		</Link>
-		<Link href="#" >
+		<Link href="/" >
 			<a className="pr-3">				
 				<FontAwesomeIcon icon={faGalacticRepublic} size="xs" color='gray' className="w-4 h-4"/>		
 			</a>
