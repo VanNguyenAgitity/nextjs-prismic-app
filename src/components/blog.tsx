@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Slider from "react-slick"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faComments } from '@fortawesome/free-solid-svg-icons'
-import IconSearch from '../assets/icons/search.png'
+import Button from '../components/button'
 
 const settings = {
 	dots: true,
@@ -36,10 +36,11 @@ export default function Blog({ data }) {
                 objectFit="cover"
               />
             </div>
-            <div className="flex flex-col items-left sm:w-72 w-48 maxd:top-1/4 top-1/2 left-50% px-2 absolute z-30">
-              <h4 className="font-montserrat uppercase text-xss mb-2 text-white">{productTypeCommboSale[0].primary.combo_event}</h4>
-              <h5 className="font-montserrat uppercase text-8xl mb-2 text-white">{productTypeCommboSale[0].primary.combo_name}</h5>
-              <p className="font-playfair700 text-sx text-white break-words">{productTypeCommboSale[0].primary.combo_title}</p>
+            <div className="flex flex-col w-full  top-1/4 text-center absolute z-30">
+              <h4 className="font-montserrat font-bold uppercase text-sx mb-2 text-white">{productTypeCommboSale[0].primary.combo_event}</h4>
+              <h5 className="font-montserrat uppercase maxd:text-5xl text-8xl mb-2 text-white">{productTypeCommboSale[0].primary.combo_name}</h5>
+              <p className="font-montserrat maxd:text-xl text-2xl text-white break-words p-p10">{productTypeCommboSale[0].primary.combo_title}</p>
+              <Button className="px-4 m-auto py-2 mt-4 rounded-full" type="btton" bg="bg-blueless" text="Read More" color="text-white" fontWeight="font-semibold" fontFamily="font-montserrat" fontSize="text-xs"/>
             </div>
             </a>
         </Link>
