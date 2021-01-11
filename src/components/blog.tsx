@@ -27,7 +27,7 @@ export default function Blog({ data }) {
       <div className={`border border-solid border-gray-200`}>
         <Link href={`#`}>
           <a className={`flex h-full justify-end relative`}>
-            <div className={`flex m-0 h-full`}>
+            <div className={`flex m-0 h-full w-full bg-cover`}>
               <Image
                 alt={productTypeCommboSale[0].fields[0].image.alt}
                 src={productTypeCommboSale[0].fields[0].image.url}
@@ -36,7 +36,7 @@ export default function Blog({ data }) {
                 objectFit="cover"
               />
             </div>
-            <div className="flex flex-col items-left sm:w-72 w-48 maxd:top-1/4 top-1/2 left-4 px-2 absolute z-30">
+            <div className="flex flex-col items-left sm:w-72 w-48 maxd:top-1/4 top-1/2 left-50% px-2 absolute z-30">
               <h4 className="font-montserrat uppercase text-xss mb-2 text-white">{productTypeCommboSale[0].primary.combo_event}</h4>
               <h5 className="font-montserrat uppercase text-8xl mb-2 text-white">{productTypeCommboSale[0].primary.combo_name}</h5>
               <p className="font-playfair700 text-sx text-white break-words">{productTypeCommboSale[0].primary.combo_title}</p>
