@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Slider from "react-slick"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faComments } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faComments, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Button from '../components/button'
 
 const settings = {
@@ -102,7 +102,10 @@ export default function Blog({ data }) {
                       </div>
                     </div>
                   ))}
-                  <button className="text-gray text-xs">View More</button>
+                  <div className="flex flex-row items-center">
+                    <button className="text-black text-base uppercase mr-4">View all</button>
+                    <FontAwesomeIcon icon={faArrowRight} size="2x" color='black' className="w-3 h-3"/>
+                  </div>
                 </div>
               </div>
             </div>
