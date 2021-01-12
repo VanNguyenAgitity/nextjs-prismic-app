@@ -1,12 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import Button from '../components/button'
 
 export default function Product({ product }) {
   const objectFit = product.node.style_new ? 'cover' : 'contain'
+  const router = useRouter()
+  const handleClick = (e) => {
+    e.preventDefault()
+    router.push(`/product/${product.node._meta.uid}`)
+  }
   return (
-    <li className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
+    <li  onClick={handleClick} className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
       <Link href={`/product/${product.node._meta.uid}`}>
         <a className={`flex ${product.node.style_new ? "h-full justify-end relative" : "flex-col"}`}>
           {product.node.price_sale &&

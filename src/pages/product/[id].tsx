@@ -17,22 +17,22 @@ export default function Product({ preview, allProducts }){
     {
       label: "Home",
       path: "/",
-      icon: ">"
+      icon: ""
     },
     {
       label: "Catalog",
       path: "/catalog",
-      icon: ">"
+      icon: ""
     },
     {
       label: "Men",
       path: "/#",
-      icon: ">"
+      icon: ""
     },
     {
       label: "Clothing",
       path: "/#",
-      icon: ">"
+      icon: ""
     }
   ]
   return (
@@ -49,7 +49,7 @@ export default function Product({ preview, allProducts }){
 }
 
 export async function getServerSideProps({previewDataProduct }) {
-  const allProducts = await getAllDatasForProducts(previewDataProduct)
+  const allProducts = await getAllDatasForProducts(previewDataProduct)  
   return {
     props: { allProducts },
   }
