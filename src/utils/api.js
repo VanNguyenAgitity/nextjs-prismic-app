@@ -75,17 +75,20 @@ export async function getAllDatasForProducts(previewData) {
       allProductss(sortBy: name_DESC) {
         edges {
           node {
+            _meta {
+              uid
+              type
+            }
             date
             name
             price_regular
             price_sale
             images
             style_new
-            type_popular            
-            _meta {
-              uid
-              type
-            }
+            type_popular
+            color
+            size
+            sex
             blog_popular
             likes
             rating_star

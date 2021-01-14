@@ -32,16 +32,13 @@ export default function Index({ preview, allDatas, allProducts, allPattern, prop
         <Head>
           <title> Be.Pro with {CMS_NAME}</title>
         </Head>
-        <div>  
-          {/* <div className="mb-4 md:mb-0 text-lg">
-            {heroData.date}
-          </div> */}
+        <div>
           <Slide data={dataBannerMain} setting={settings}/>
           <Feature featureList={FeatureList}/>
           <ProductList allDatas={allProducts} loadMoreNumber={4}/>
           <Slide data={dataBannerSub} setting={settings}/>
           <ProductPattern allDatas={allPattern}/>
-          <Blog  data={productBlogPopular}/>          
+          <Blog  data={productBlogPopular}/>
         </div>
       </Layout>
     </>

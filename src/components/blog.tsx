@@ -21,7 +21,7 @@ export default function Blog({ data }) {
     setLoadNum(prevRange => prevRange + 2);
   },[])
   const productTypeCommboSale = data[0].node.body.filter(({ type }) => type === 'combo_sale');
-
+  
   return (
     <div className="flex flex-wrap w-11/12 flex my-6 mx-auto grid grid-cols-4 gap-4">
       <div className={`border border-solid border-gray-200`}>

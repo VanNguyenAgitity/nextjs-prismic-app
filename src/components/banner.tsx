@@ -1,18 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import ImageHero from '../assets/images/top-banner.jpg'
+import Nav from './nav'
 
-const Banner = () => (
-  <div className="z-50 flex justify-center bg-black sticky top-0 md:hidden">
-    <Link href='/all' as='/all'>
-      <Image
-        alt="Logo"
-        className="h-12 w-12"
-        src={ImageHero}
-        width={940}
-        height={80}
-      />   
-    </Link>   
+const Banner = ({sex, navList}) => (
+  <div className="z-50 h-56 w-hull flex flex-col justify-top pt-8 bg-blue-700 items-center">
+    <h2 className="text-white text-2xl uppercase font-montserrat font-semibold">{sex}'s Lifestyle Clothing</h2>
+    <Nav navList={navList} icon={true}/>
   </div>
 )
 

@@ -11,7 +11,7 @@ export const NavHeader = [
 	},
 	{
 		label: "Shop",
-		path: "/#",
+		path: "/shop",
 		icon: ""
 	},
 	{
@@ -54,6 +54,29 @@ export const NavFooter = [
 	},
 	{
 		label: "Blog",
+		path: "/#",
+		icon: ""
+	}
+]
+
+export const navListProduct =  [
+	{
+		label: "Home",
+		path: "/",
+		icon: ""
+	},
+	{
+		label: "Catalog",
+		path: "/catalog",
+		icon: ""
+	},
+	{
+		label: "Men",
+		path: "/#",
+		icon: ""
+	},
+	{
+		label: "Clothing",
 		path: "/#",
 		icon: ""
 	}

@@ -1,5 +1,8 @@
-import Link from "next/link"
-import { withRouter } from "next/router";
+import { withRouter } from "next/router"
+
+import Link from '../utils/active-link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
 import COLORS from '../themes/colors'
 
@@ -20,14 +23,20 @@ import COLORS from '../themes/colors'
 
 const Nav = (props) => (
   <div className="flex">
-      { props.navList.map(nav => (
-        <Link href={nav.path} key={nav.label}>
-          {/* <div>{nav.icon}</div> */}
-          <a className={`text-white uppercase font-montserrat font-semibold p-2 m-2 text-xs
-          ${props.router.pathname === nav.path ? "active" : ""}`}>{nav.label}</a>
-        </Link>
+      { props.navList.map((nav, i) => (
+        <div className="flex items-center" key={i}>
+          <Link href={nav.path} key={nav.label} activeClassName="active">
+            <a className={`text-white font-montserrat font-semibold m-2 text-xs
+            ${props.icon ? "py-2" : "p-2"}
+            ${props.icon ? "" : "uppercase"}
+            `}>{nav.label}</a>
+          </Link>
+          {props.icon &&
+            <FontAwesomeIcon icon={faCaretRight} size="xs" color="white" className="w-2 h-2"/>
+          }
+        </div>
       ))}
-      <style jsx>{`        
+      <style jsx>{`
           .active {
             position: relative;
           } 
