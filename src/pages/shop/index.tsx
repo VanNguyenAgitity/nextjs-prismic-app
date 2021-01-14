@@ -1,20 +1,18 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 // Components
 import Container from '../../components/container'
 import Layout from '../../components/layout'
 
-export default function CatalogPage(preview) {
-  const router = useRouter()
+export default function ShopPage() {
   return (
     <>
-      <Layout preview='catalog'>
+      <Layout preview='shop'>
           <Head>
-            <title>Catalog Page</title>
+            <title>Shop Page</title>
           </Head>
           <Container>
-            <h1 className='mb-5'>Catalog Page</h1>
+            <h1 className='mb-5'>Shop Page</h1>
           </Container>
       </Layout>
     </>

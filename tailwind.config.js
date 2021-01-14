@@ -15,7 +15,8 @@ module.exports = {
         'bluelight': '#0021c4',
         'blackless': '#363637',
         'grayless': '#999999',
-        'pinkdark': '#d4bdad'
+        'pinkdark': '#d4bdad',
+        'redless': '#cc3333',
       },
       fontSize: {
         'xsm': '.5rem',
@@ -51,6 +52,16 @@ module.exports = {
         // => @media (max-width: 639px) { ... }
       }
     },
+    customForms: theme => ({
+      default: {
+        checkbox: {
+          iconColor: theme('colors.black.200'),
+          '&:hover': {
+            iconColor: theme('colors.black.200'),
+          }
+        },
+      },
+    })
   },
   variants: {
     fill: [],
@@ -59,5 +70,7 @@ module.exports = {
       opacity: ['disabled'],
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/custom-forms'),
+  ]
 }

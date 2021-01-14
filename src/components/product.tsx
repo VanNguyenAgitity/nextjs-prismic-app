@@ -1,18 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 
 import Button from '../components/button'
 
 export default function Product({ product }) {
   const objectFit = product.node.style_new ? 'cover' : 'contain'
-  const router = useRouter()
-  const handleClick = (e) => {
-    e.preventDefault()
-    router.push(`/product/${product.node._meta.uid}`)
-  }
+  
+  
   return (
-    <li  onClick={handleClick} className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
+    <li className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
       <Link href={`/product/${product.node._meta.uid}`} as={`/product/${product.node._meta.uid}`}>
         <a className={`flex ${product.node.style_new ? "h-full justify-end relative" : "flex-col"}`}>
           {product.node.price_sale &&
@@ -38,7 +34,7 @@ export default function Product({ product }) {
             {product.node.style_new &&
               <div className="rounded-2xl bg-white py-4 mt-2 flex justify-center items-center divide-x">
                 <span className="text-blueless font-montserrat font-normal text-sm pr-2">{`$ ${product.node.price_regular} USD`}</span>
-                <Button className="px-2 uppercase"type="text" text="By Now" color="text-blueless" fontWeight="font-semibold" fontFamily="font-montserrat" bg="bg-white" fontSize="text-sm"/>                
+                <Button className="px-2 uppercase"type="text" text="By Now" color="text-blueless" fontWeight="font-semibold" fontFamily="font-montserrat" bg="bg-white" fontSize="text-sm"/>
               </div>
             }
             {!product.node.style_new &&
