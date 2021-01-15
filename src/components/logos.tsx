@@ -15,7 +15,7 @@ const settings = {
 }
 
 const Logos = () => (
-	<div className="w-11/12 m-auto py-2 mb-2 logos">		     
+	<div className="w-11/12 m-auto py-2 mb-2 logos">
 		<Slider {... settings}>			
 			<Link href="/">
 				<a className="flex justify-center">

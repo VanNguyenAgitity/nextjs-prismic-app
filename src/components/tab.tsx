@@ -32,10 +32,10 @@ const Tabs = (props) => {
 
   const { reviews } = props
   const numReviews = reviews.length
-  const [ loadNumMore, setLoadNumMore] = useState(3);
+  const [ loadNumMore, setLoadNumMore] = useState(3)
 
   const loadMoreNumber = useCallback(() => {
-    setLoadNumMore(prevRange => prevRange + 3);
+    setLoadNumMore(prevRange => prevRange + 3)
 	},[])
   
   console.log('props product', reviews)
@@ -45,10 +45,10 @@ const Tabs = (props) => {
         <div onClick={toggleActiveTabReviews} className={`${isTabReviews ? 'border-b border-blueless': null} cursor-pointer py-6`}>
           <span className={`${isTabReviews ? 'text-blueless': null} font-montserrat uppercase text-xs active-tab font-semibold`}>Review</span>
         </div>
-        <div onClick={toggleActiveTabSpecification} className={`${isTabSpecification ? 'border-b border-blueless': null} cursor-pointer py-6 mx-6`}>          
+        <div onClick={toggleActiveTabSpecification} className={`${isTabSpecification ? 'border-b border-blueless': null} cursor-pointer py-6 mx-6`}>
           <span className={`${isTabSpecification ? 'text-blueless': null} font-montserrat uppercase text-xs active-tab font-semibold`}>Specification</span>
         </div>
-        <div onClick={toggleActiveTabDescription} className={`${isTabDescription ? 'border-b border-blueless': null} cursor-pointer py-6 mx-6`}>          
+        <div onClick={toggleActiveTabDescription} className={`${isTabDescription ? 'border-b border-blueless': null} cursor-pointer py-6 mx-6`}>
           <span className={`${isTabDescription ? 'text-blueless': null} font-montserrat uppercase text-xs active-tab font-semibold`}>Description</span>
         </div>
       </div>
@@ -106,19 +106,19 @@ const Tabs = (props) => {
             </ul>
             {numReviews > 3 &&
               <div className="flex m-auto  w-28 mb-8">
-                <FontAwesomeIcon icon={faSyncAlt} size="sm" color='gray' className="w-4 h-4"/>
-                <button className="focus:outline-nReviews w-full uppercase text-xs font-montserrat font-semibold" onClick={loadMoreNumber}>Load More</button>
+                <FontAwesomeIcon icon={faSyncAlt} size="sm" color='blue' className="w-4 h-4"/>
+                <button className="focus:outline-none w-full uppercase text-xs font-montserrat font-semibold" onClick={loadMoreNumber}>Load More</button>
               </div>
             }
           </div>
         }
         {isTabSpecification &&
-          <div className="pl-10 m-auto pt-8">
+          <div className="pl-p4 m-auto pt-8">
             This is tab Specification content
           </div>
         }
         {isTabDescription &&
-          <div className="pl-10 m-auto pt-8">
+          <div className="pl-p4 m-auto pt-8">
             This is tab Description content
           </div>
         }

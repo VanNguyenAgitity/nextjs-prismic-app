@@ -2,7 +2,7 @@ import Image from 'next/image'
 import IconCart from '../assets/icons/cart.png'
 
 const ShopCart = () => (
-  <div className="flex justify-center self-center relative">    
+  <div className="flex justify-center self-center relative">
     <Image
       alt="Icon cart"
       src={IconCart}

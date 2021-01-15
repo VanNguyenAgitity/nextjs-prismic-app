@@ -46,14 +46,16 @@ export default function SliderNav(props) {
           verticalSwiping={true}
         >
           {props.dataProduct.map((item, i) => (
-            <div className="w-full" key={i}>
-              <Image
-                alt="Icon fire"
-                src={item.url}
-                width={50}
-                height={48}
-                objectFit="contain"
-              />
+            <div className="w-full border p-1" key={i}>
+              <div className='flex justify-center items-center'>
+                <Image
+                  alt="Icon fire"
+                  src={item.url}
+                  width={50}
+                  height={48}
+                  objectFit="contain"
+                />
+              </div>
             </div>
           ))}
         </Slider>
