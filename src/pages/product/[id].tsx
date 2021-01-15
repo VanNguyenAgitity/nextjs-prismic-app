@@ -17,7 +17,7 @@ export default function Product({ preview, allProducts }){
   const dataProduct = allProducts && allProducts.filter(({ node }) => node._meta.uid === query.id)
   const dataImagesProduct = dataProduct && dataProduct.map(({ node }) => node.images) 
   const dataProductLength = dataProduct.length > 0
-  const productTypePopular = dataProductLength && allProducts.filter(({ node }) => node.type_popular && !node.blog_popular)  
+  const productTypePopular = dataProductLength && allProducts.filter(({ node }) => node.type_popular && !node.blog_popular)
   const sexType = dataProductLength && dataProduct[0].node.sex
   const imagesRelative = []
   const imagesListProduct = Object.values(dataImagesProduct[0])
@@ -30,9 +30,8 @@ export default function Product({ preview, allProducts }){
   })
 
   
-  const productReviewComments = dataProduct[0].node.body.filter(({ type }) => type === 'comments')
-  const numComments = productReviewComments.length
-  console.log('Check comments', productReviewComments)
+  const productReviewComments = dataProduct[0].node.body && dataProduct[0].node.body.filter(({ type }) => type === 'comments')
+  const numComments = productReviewComments && productReviewComments.length
 
    return (
     <>
@@ -50,7 +49,9 @@ export default function Product({ preview, allProducts }){
                 <SliderNav dataProduct={imagesRelative}/>
               }
             </div>
-              <Tabs reviews={productReviewComments}/>
+              {numComments > 0 &&
+                <Tabs reviews={productReviewComments}/>
+              }
               <ProductList allDatas={productTypePopular} loadMoreNumber={numComments}/>
             </div>
           </div>
