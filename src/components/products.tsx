@@ -14,13 +14,12 @@ export default function Products({ allDatas, loadMoreNumber }) {
   const productTypePopular = allDatas.filter(({ node }) => node.type_popular && !node.blog_popular)
   const productTypeNewStyle = allDatas.filter(({ node }) => !node.type_popular && !node.blog_popular)
   const prodcutStyleLength = productTypeNewStyle && productTypeNewStyle.length
-
   const moreProduct = useCallback(() => {
     setLoadNum(prevRange => prevRange + loadMoreNumber);
   },[])
 
   const loadMoreProduct = useCallback(() => {
-      setLoadNumMore(prevRange => prevRange + 4);
+		setLoadNumMore(prevRange => prevRange + 4);
 	},[])
 	
 	return (

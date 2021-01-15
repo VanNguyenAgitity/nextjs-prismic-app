@@ -60,7 +60,7 @@ export default function Blog({ data }) {
                     objectFit="cover"
                   />
                   <div className="flex flex-col items-left sm:w-72 w-48 maxd:top-1/4 top-1/2 left-16 px-2 absolute z-30">
-                    <h5 className="font-montserrat uppercase text-xss mb-2 text-white">{item.node.date}</h5>
+                    <span className="font-montserrat uppercase text-xss mb-2 text-white">{item.node.date}</span>
                     <p className="font-playfair700 text-sx text-white break-words">{item.node.title}</p>
                     <div className="mt-2 flex items-center w-28 divide-x">
                       { item.node.comments &&

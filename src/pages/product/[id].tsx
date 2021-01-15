@@ -28,7 +28,6 @@ export default function Product({ preview, allProducts }){
       }
     }
   })
-
   
   const productReviewComments = dataProduct[0].node.body && dataProduct[0].node.body.filter(({ type }) => type === 'comments')
   const numComments = productReviewComments && productReviewComments.length
@@ -52,7 +51,7 @@ export default function Product({ preview, allProducts }){
               {numComments > 0 &&
                 <Tabs reviews={productReviewComments}/>
               }
-              <ProductList allDatas={productTypePopular} loadMoreNumber={numComments}/>
+              <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
             </div>
           </div>
         }

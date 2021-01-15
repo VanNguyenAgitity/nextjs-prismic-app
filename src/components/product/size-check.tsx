@@ -33,7 +33,7 @@ export default function SizeCheck(props) {
   
   return ( 
     <div className="block">
-      <span className="text-gray-700">Size:</span>
+      <span className="text-gray-700 text-gray-700 font-montserrat uppercase text-xs font-semibold">Size:</span>
       <div className="mt-4 flex w-24 justify-between">
         <label className="inline-flex items-center">
           <span className={`${isActiveSizeS ? 'text-blueless': null} cursor-pointer text-xs active-text`} onClick={toggleClassSizeS} >S</span>

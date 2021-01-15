@@ -1,6 +1,6 @@
 const ColorCheck = () => (
   <div className="block">
-  <span className="text-gray-700">Color:</span>
+  <span className="text-gray-700 font-montserrat uppercase text-xs font-semibold">Color:</span>
   <div className="mt-4 flex w-24 justify-between">
       <label className="inline-flex items-center">
         <input type="checkbox" value="1" className="form-checkbox bg-white text-white h-5 w-5 rounded-full shadow border border-solid border-gray-200"/>
