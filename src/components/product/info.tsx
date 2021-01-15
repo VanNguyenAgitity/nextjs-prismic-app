@@ -15,8 +15,8 @@ const InfoProduct = ({product}) => (
         </div>
       </div>
       <div className="flex w-10/12 max-w-xs justify-between">
-        <ColorCheck/>
-        <SizeCheck/>
+        <ColorCheck color={'White'}/>
+        <SizeCheck size={'M'}/>
       </div>
       <div className="flex w-28 items-center justify-wrap mt-6">
         {product.price_sale &&

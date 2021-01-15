@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-export default function SizeCheck(props) {
+export default function SizeCheck({size}) {
   const [isActiveSizeS, setActiveSizeS] = useState(false)
   const [isActiveSizeM, setActiveSizeM] = useState(false)
   const [isActiveSizeL, setActiveSizeL] = useState(false)

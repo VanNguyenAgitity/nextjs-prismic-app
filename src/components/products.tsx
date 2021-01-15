@@ -21,7 +21,7 @@ export default function Products({ allDatas, loadMoreNumber }) {
   const loadMoreProduct = useCallback(() => {
 		setLoadNumMore(prevRange => prevRange + 4);
 	},[])
-	console.log('loadNumMore', loadNumMore, 'prodcutStyleLength', prodcutStyleLength)
+	
 	return (
 		<>
 			<ul className="flex flex-wrap w-11/12 flex pb-8 my-6 mx-auto grid grid-cols-4 gap-4">
