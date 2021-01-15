@@ -20,12 +20,11 @@ export default function Blog({ data }) {
   const moreProduct = useCallback(() => {
     setLoadNum(prevRange => prevRange + 2);
   },[])
-  const productTypeCommboSale = data[0].node.body.filter(({ type }) => type === 'combo_sale');
-  
+  const productTypeCommboSale = data[0].node.body.filter(({ type }) => type === 'combo_sale')
   return (
     <div className="flex flex-wrap w-11/12 flex my-6 mx-auto grid grid-cols-4 gap-4">
       <div className={`border border-solid border-gray-200`}>
-        <Link href={`#`}>
+        <Link href={`/#`}>
           <a className={`flex h-full justify-end relative`}>
             <div className={`flex m-0 h-full w-full bg-cover`}>
               <Image
@@ -64,7 +63,7 @@ export default function Blog({ data }) {
                     <h5 className="font-montserrat uppercase text-xss mb-2 text-white">{item.node.date}</h5>
                     <p className="font-playfair700 text-sx text-white break-words">{item.node.title}</p>
                     <div className="mt-2 flex items-center w-28 divide-x">
-                      { item.node.comments &&                   
+                      { item.node.comments &&
                         <div className="flex items-center pr-4">
                           <FontAwesomeIcon icon={faComments} size="xs" color='white' className="w-2 h-2"/>
                           <span className="font-montserrat text-xsm text-white ml-2">{item.node.comments.length}</span>

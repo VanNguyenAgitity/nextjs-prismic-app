@@ -14,7 +14,7 @@ export default function SliderNav(props) {
           dots={false}
           infinite={false}
           autoplay={false}
-          speed={1000}
+          speed={500}
           fade={true}
           cssEase={'cubic-bezier(0.600, -0.280, 0.735, 0.045)'}
           asNavFor={nav2}
@@ -58,5 +58,5 @@ export default function SliderNav(props) {
           ))}
         </Slider>
       </div>
-    </div>    
+    </div>
   )}

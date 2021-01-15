@@ -120,6 +120,21 @@ export async function getAllDatasForProducts(previewData) {
                   combo_date
                 }
               }
+              ... on ProductsBodyComments {
+                type
+                primary{
+                  contents
+                  liked
+                  dislike
+                  status
+                  rating
+                  date_comment
+                }
+                fields{
+                  image
+                  author
+                }
+              }
               __typename
             }
           }
