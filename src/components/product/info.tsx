@@ -8,7 +8,7 @@ const InfoProduct = ({product}) => (
       <h5 className="font-montserrat uppercase text-sm font-semibold mb-2 text-blueless tracking-wider">LifeStyle</h5>
       <p className="font-playfair font-normal text-2xl text-blackless break-words">Double-faced Wool Cape Jacket</p>
       <div className="flex my-4 items-center">
-        <RatingStar numOfStars={product.rating_star}/>
+        <RatingStar numOfStars={product.rating_star} width='w-6' height='h-4'/>
         <div className="flex items-center justify-between divide-x ml-2">  
           <span className="font-montserrat text-xs text-gray-600 font-semibold ml-2 pr-2">{product.rating_star} reviews</span>
           <span className="font-montserrat text-xs text-gray-600 font-semibold pl-2">Write your review</span>
@@ -20,7 +20,7 @@ const InfoProduct = ({product}) => (
       </div>
       <div className="flex w-28 items-center justify-wrap mt-4">
         {product.price_sale &&
-          <span className="text-redless text-sm mr-4 font-montserrat font-semibold">{`$ ${product.price_sale}`}</span>
+          <span className="text-redless text-base mr-4 font-montserrat font-semibold">{`$ ${product.price_sale}`}</span>
         }
         {product.price_regular &&
           <span className={`${product.price_sale ? "line-through text-gray-500" : "text-blueless" } font-semibold text-xss`}>{`$ ${product.price_regular}`}</span>

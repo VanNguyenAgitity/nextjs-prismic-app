@@ -8,6 +8,7 @@ import { navListProduct } from '../../utils/constants'
 import Layout from '../../components/layout'
 import ProductList from '../../components/products'
 import Banner from '../../components/banner'
+import Tabs from '../../components/tab'
 import SliderNav from '../../components/product/slide-nav'
 import InfoProduct from '../../components/product/info'
 
@@ -28,6 +29,11 @@ export default function Product({ preview, allProducts }){
     }
   })
 
+  
+  const productReviewComments = dataProduct[0].node.body.filter(({ type }) => type === 'comments')
+  const numComments = productReviewComments.length
+  console.log('Check comments', productReviewComments)
+
    return (
     <>
       <Layout preview={'product'}>
@@ -44,7 +50,8 @@ export default function Product({ preview, allProducts }){
                 <SliderNav dataProduct={imagesRelative}/>
               }
             </div>
-              <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
+              <Tabs reviews={productReviewComments}/>
+              <ProductList allDatas={productTypePopular} loadMoreNumber={numComments}/>
             </div>
           </div>
         }

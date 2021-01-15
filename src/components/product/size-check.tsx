@@ -34,18 +34,18 @@ export default function SizeCheck(props) {
   return ( 
     <div className="block">
       <span className="text-gray-700">Size:</span>
-      <div className="mt-4 flex w-28 justify-between">
+      <div className="mt-4 flex w-24 justify-between">
         <label className="inline-flex items-center">
-          <span className={`${isActiveSizeS ? 'active-text': null} cursor-pointer text-xs active-text`} onClick={toggleClassSizeS} >S</span>
+          <span className={`${isActiveSizeS ? 'text-blueless': null} cursor-pointer text-xs active-text`} onClick={toggleClassSizeS} >S</span>
         </label>
         <label className="inline-flex items-center">
-          <span className={`${isActiveSizeM ? 'active-text': null} cursor-pointer text-xs`} onClick={toggleClassSizeM} >M</span>
+          <span className={`${isActiveSizeM ? 'text-blueless': null} cursor-pointer text-xs`} onClick={toggleClassSizeM} >M</span>
         </label>
         <label className="inline-flex items-center">
-          <span className={`${isActiveSizeL ? 'active-text': null} cursor-pointer text-xs`} onClick={toggleClassSizeL} >L</span>
+          <span className={`${isActiveSizeL ? 'text-blueless': null} cursor-pointer text-xs`} onClick={toggleClassSizeL} >L</span>
         </label>
         <label className="inline-flex items-center">
-          <span className={`${isActiveSizeXL ? 'active-text': null} cursor-pointer text-xs`} onClick={toggleClassSizeXL} >XL</span>
+          <span className={`${isActiveSizeXL ? 'text-blueless': null} cursor-pointer text-xs`} onClick={toggleClassSizeXL} >XL</span>
         </label>
       </div>
     </div>
