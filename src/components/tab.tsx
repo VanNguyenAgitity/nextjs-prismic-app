@@ -62,28 +62,34 @@ const Tabs = (props) => {
             <ul className="flex flex-col mb-8">
               {reviews.slice(0, loadNumMore).map((review, i) => (
                 <li className="border-b py-6 flex" key={i}>
-                  <div className="rounded-full overflow-hidden bg-gray-200 w-8 h-8">
-                    <Image
-                      alt={review.fields[0].image.alt}
-                      src={review.fields[0].image.url}
-                      width={50}
-                      height={50}
-                      objectFit="contain"
-                    />
-                  </div>
+                  {review.fields[0].image &&
+                    <div className="rounded-full overflow-hidden bg-gray-200 w-8 h-8">
+                      <Image
+                        alt={review.fields[0].image.alt}
+                        src={review.fields[0].image.url}
+                        width={50}
+                        height={50}
+                        objectFit="contain"
+                      />
+                    </div>
+                  }
                   <div className="flex flex-col pl-p4 w-full">
                     <div className="flex justify-between">
                       <div className="flex items-center">
-                        <span className="font-montserrat text-blackless font-semibold text-xs">{review.fields[0].author}</span>
-                        <div className="flex items-center justify-between divide-x ml-4">
+                        {review.fields[0].author &&
+                          <span className="font-montserrat text-blackless font-semibold text-xs mr-4">{review.fields[0].author}</span>
+                        }
+                        <div className="flex items-center justify-between divide-x">
                           <RatingStar numOfStars={review.primary.rating} width='w-3' height='h-2'/>
                           <span className="font-montserrat text-xss text-gray-600 font-semibold pl-2 ml-2">Write your review</span>
                         </div>
                       </div>
-                      <div className="flex justify-between items-center">
-                        <FontAwesomeIcon icon={faClock} size="xs" color='gray' className="w-2 h-2"/>
-                        <span className="font-montserrat text-xss text-gray-600 font-semibold pl-2">{`Date: ${review.primary.date_comment}`}</span>
-                      </div>
+                      {review.primary.date_comment &&
+                        <div className="flex justify-between items-center">
+                          <FontAwesomeIcon icon={faClock} size="xs" color='gray' className="w-2 h-2"/>
+                          <span className="font-montserrat text-xss text-gray-600 font-semibold pl-2">{`Date: ${review.primary.date_comment}`}</span>
+                        </div>
+                      }
                     </div>
                     <div className="flex flex-col my-4 w-full">
                       {review.primary.contents && review.primary.contents.map((comment, i) => (
@@ -91,14 +97,18 @@ const Tabs = (props) => {
                       ))}
                     </div>
                     <div className="mt-2 flex items-center w-28 divide-x">
-                      <div className="flex items-center pr-4">
-                        <FontAwesomeIcon icon={faThumbsUp} size="xs" color='gray' className="w-2 h-2"/>
-                        <span className="font-montserrat text-xsm text-gray ml-2">{review.primary.liked}</span>
-                      </div>
-                      <div className="flex items-center px-4">
-                        <FontAwesomeIcon icon={faThumbsDown} size="xs" color='gray' className="w-2 h-2"/>
-                        <span className="font-montserrat text-xsm text-gray ml-2">{review.primary.dislike}</span>
-                      </div>
+                      {review.primary.liked &&
+                        <div className="flex items-center pr-4">
+                          <FontAwesomeIcon icon={faThumbsUp} size="xs" color='gray' className="w-2 h-2"/>
+                          <span className="font-montserrat text-xsm text-gray ml-2">{review.primary.liked}</span>
+                        </div>
+                      }
+                      {review.primary.dislike &&
+                        <div className="flex items-center px-4">
+                          <FontAwesomeIcon icon={faThumbsDown} size="xs" color='gray' className="w-2 h-2"/>
+                          <span className="font-montserrat text-xsm text-gray ml-2">{review.primary.dislike}</span>
+                        </div>
+                      }
                     </div>
                   </div>
                 </li>
