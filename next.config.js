@@ -16,7 +16,7 @@ module.exports = withImages(
           destination: '/',
         },
         {
-          source: 'https://nextjs-with-prismic-app.vercel.app/product/product_13',
+          source: '/product/product_13',
           destination: `https://nextjs-with-prismic-app.vercel.app/product/product_13`,
         },
       ];
