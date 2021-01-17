@@ -16,7 +16,7 @@ const settings = {
 
 export default function Blog({ data }) {
   const [ loadNum, setLoadNum] = useState(2);
-  const [ loadNumMore ] = useState(2);
+  //const [ loadNumMore ] = useState(2);
   const moreProduct = useCallback(() => {
     setLoadNum(prevRange => prevRange + 2);
   },[])
