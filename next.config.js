@@ -12,11 +12,11 @@ module.exports = withImages(
       return [
         // 307 temporary redirect
         {
-          source: '/:path*',
-          destination: '/:path*',
+          source: '/',
+          destination: '/',
         },
         {
-          source: '/:path*',
+          source: '/product/product_13',
           destination: `https://nextjs-with-prismic-app.vercel.app/product/product_13`,
         },
       ];
