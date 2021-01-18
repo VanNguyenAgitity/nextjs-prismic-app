@@ -9,7 +9,7 @@ export default function CatalogPage(preview) {
   const router = useRouter()
   return (
     <>
-      <Layout preview='catalog'>
+      <Layout>
           <Head>
             <title>Catalog Page</title>
           </Head>

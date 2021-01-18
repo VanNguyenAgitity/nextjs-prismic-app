@@ -34,7 +34,7 @@ export default function Product({ preview, allProducts }){
 
    return (
     <>
-      <Layout preview={preview}>
+      <Layout>
         <Head>
           <title> Product Detail</title>
         </Head>

@@ -7,7 +7,7 @@ import Layout from '../../components/layout'
 export default function ShopPage() {
   return (
     <>
-      <Layout preview='shop'>
+      <Layout>
           <Head>
             <title>Shop Page</title>
           </Head>
