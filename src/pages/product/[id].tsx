@@ -37,30 +37,30 @@ export default function Product({ preview, allProducts }){
   const numComments = productReviewComments && productReviewComments.length
 
    return (
-    <>     
-      <Head>
-        <title> Product Detail</title>
-      </Head>
-      <MetaHead />
-      <Header/>
-      {dataProductLength && 
-        <div className=''>
-          <Banner sex={sexType} navList={navListProduct}/>
-          <div className="flex flex-col m-auto -mt-20 items-center justify-between bg-white w-11/12 h-full border-solid border	sborder-gray-50">
-          <div className="flex w-full">
-            <InfoProduct product={dataProduct[0].node}/>
-            {imagesRelative.length > 0 &&
-              <SliderNav dataProduct={imagesRelative}/>
-            }
+    <Layout>
+      <>    
+        <Head>
+          <title> Product Detail</title>
+        </Head>
+        {dataProductLength && 
+          <div className=''>
+            <Banner sex={sexType} navList={navListProduct}/>
+            <div className="flex flex-col m-auto -mt-20 items-center justify-between bg-white w-11/12 h-full border-solid border	sborder-gray-50">
+            <div className="flex w-full">
+              <InfoProduct product={dataProduct[0].node}/>
+              {imagesRelative.length > 0 &&
+                <SliderNav dataProduct={imagesRelative}/>
+              }
+            </div>
+              {numComments > 0 &&
+                <Tabs reviews={productReviewComments}/>
+              }
+              <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
+            </div>
           </div>
-            {numComments > 0 &&
-              <Tabs reviews={productReviewComments}/>
-            }
-            <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
-          </div>
-        </div>
-      }
-    </>
+        }
+      </>
+    </Layout>
   )
 }
 
