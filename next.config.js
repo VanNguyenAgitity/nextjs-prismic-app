@@ -5,27 +5,8 @@ module.exports = withImages(
     images: {
       domains: ['images.prismic.io'],
     },
-    routes: [
-      {
-        page: '/product',
-        path: '/product/:id'
-      }
-    ],
     webpack(config, options) {
       return config
-    },
-    async rewrites() {
-      return [
-        // 307 temporary redirect
-        {
-          source: '/',
-          destination: '/',
-        },
-        {
-          source: '/product/product_13',
-          destination: `https://nextjs-with-prismic-app.vercel.app/product/product_13`,
-        },
-      ];
     }
   },
   withLess(),
