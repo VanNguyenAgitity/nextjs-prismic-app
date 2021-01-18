@@ -5,6 +5,12 @@ module.exports = withImages(
     images: {
       domains: ['images.prismic.io'],
     },
+    routes: [
+      {
+        page: '/product',
+        path: '/product/:id'
+      }
+    ],
     webpack(config, options) {
       return config
     },
@@ -25,7 +31,7 @@ module.exports = withImages(
   withLess(),
   {
     "pagesDir": './src/pages'
-  }  
+  },
 )
 
 
