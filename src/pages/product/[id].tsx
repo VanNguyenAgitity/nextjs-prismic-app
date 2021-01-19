@@ -55,7 +55,7 @@ export default function Product({ preview, allProducts }){
             {numComments > 0 &&
               <Tabs reviews={productReviewComments}/>
             }
-            <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
+            <ProductList allDatas={productTypePopular} loadMoreNumber={3} type='popular'/>
           </div>
         </div>
       }

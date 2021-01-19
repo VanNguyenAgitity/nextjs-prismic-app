@@ -35,7 +35,7 @@ export default function Index({ preview, allDatas, allProducts, allPattern, prop
         <div>
           <Slide data={dataBannerMain} setting={settings}/>
           <Feature featureList={FeatureList}/>
-          <ProductList allDatas={allProducts} loadMoreNumber={4}/>
+          <ProductList allDatas={allProducts} loadMoreNumber={4} type={'all'}/>
           <Slide data={dataBannerSub} setting={settings}/>
           <ProductPattern allDatas={allPattern}/>
           <Blog  data={productBlogPopular}/>

@@ -17,6 +17,7 @@ module.exports = {
         'grayless': '#999999',
         'pinkdark': '#d4bdad',
         'redless': '#cc3333',
+        'graylight': '#cab5a4',
       },
       fontSize: {
         'xsm': '.5rem',

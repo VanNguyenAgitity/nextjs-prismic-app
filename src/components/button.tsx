@@ -1,6 +1,6 @@
 export default function Button(props) {
   return ( 
-    <div className="z-40 flex justify-between items-center sticky top-20 md:top-0">
+    <div className={`${props.height} z-40 flex justify-between items-center sticky top-20 md:top-0`}>
       <button className=
       {`textTransform: ${props.textTransform}
         hover:${props.hover}
