@@ -59,7 +59,6 @@ export default function Product({ preview, allProducts }){
           </div>
         </div>
       }
-      <LogoList/>
       <Footer />
     </>
   )
