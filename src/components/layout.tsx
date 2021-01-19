@@ -3,11 +3,11 @@ import Header from './header'
 import MetaHead from './meta-head'
 import LogoList from '../components/logos'
 
-export default function Layout({ preview, children }) {
+export default function Layout({ children }) {
   return (
     <>
       <MetaHead />
-      <Header/>      
+      <Header/>
       <div className="min-h-screen">
         <main>{children}</main>
       </div>

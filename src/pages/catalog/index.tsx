@@ -2,21 +2,22 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 // Components
-import Container from '../../components/container'
 import Layout from '../../components/layout'
+import Banner from '../../components/banner'
+
+import { getAllDatasForProducts } from '../../utils/api'
+import { navListProduct } from '../../utils/constants'
 
 export default function CatalogPage(preview) {
   const router = useRouter()
   return (
-    <>
-      <Layout preview='catalog'>
-          <Head>
-            <title>Catalog Page</title>
-          </Head>
-          <Container>
-            <h1 className='mb-5'>Catalog Page</h1>
-          </Container>
-      </Layout>
-    </>
+    <Layout>
+      <>
+        <Head>
+          <title>Catalog Page</title>
+        </Head>
+        <Banner sex={'Men'} navList={navListProduct}/>
+      </>
+    </Layout>
   )
 }

@@ -12,11 +12,11 @@ export default function Header() {
   return (
     <>
       {!isHomePage &&
-        <div className="z-40 px-24 flex justify-between items-center h-20 bg-blueless">          
+        <div className="z-40 px-24 flex justify-between items-center h-20 bg-blueless">
           <a href="/" className="font-playfair font-black italic text-2xl text-white">
             Be.Pro
           </a>
-          <Nav navList={NavHeader} icon={false}/>            
+          <Nav navList={NavHeader} icon={false}/>
           <div className="flex w-24 justify-between">
             <ShopCart/>
             <Search />

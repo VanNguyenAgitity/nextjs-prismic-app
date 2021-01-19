@@ -1,11 +1,14 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Footer from '../../components/footer'
+import Header from '../../components/header'
+import MetaHead from '../../components/meta-head'
+import LogoList from '../../components/logos'
 
 import { getAllDatasForProducts } from '../../utils/api'
 import { navListProduct } from '../../utils/constants'
 
 // Components
-import Layout from '../../components/layout'
 import ProductList from '../../components/products'
 import Banner from '../../components/banner'
 import Tabs from '../../components/tab'
@@ -28,35 +31,35 @@ export default function Product({ preview, allProducts }){
       }
     }
   })
-
   
   const productReviewComments = dataProduct[0].node.body && dataProduct[0].node.body.filter(({ type }) => type === 'comments')
   const numComments = productReviewComments && productReviewComments.length
 
    return (
-    <>
-      <Layout preview={'product'}>
-        <Head>
-          <title> Product Detail</title>
-        </Head>
-        {dataProductLength && 
-          <div className=''>
-            <Banner sex={sexType} navList={navListProduct}/>
-            <div className="flex flex-col m-auto -mt-20 items-center justify-between bg-white w-11/12 h-full border-solid border	sborder-gray-50">
-            <div className="flex w-full">
-              <InfoProduct product={dataProduct[0].node}/>
-              {imagesRelative.length > 0 &&
-                <SliderNav dataProduct={imagesRelative}/>
-              }
-            </div>
-              {numComments > 0 &&
-                <Tabs reviews={productReviewComments}/>
-              }
-              <ProductList allDatas={productTypePopular} loadMoreNumber={numComments}/>
-            </div>
+    <>     
+      <Head>
+        <title> Product Detail</title>
+      </Head>
+      <MetaHead />
+      <Header/>
+      {dataProductLength && 
+        <div className=''>
+          <Banner sex={sexType} navList={navListProduct}/>
+          <div className="flex flex-col m-auto -mt-20 items-center justify-between bg-white w-11/12 h-full border-solid border	sborder-gray-50">
+          <div className="flex w-full">
+            <InfoProduct product={dataProduct[0].node}/>
+            {imagesRelative.length > 0 &&
+              <SliderNav dataProduct={imagesRelative}/>
+            }
           </div>
-        }
-      </Layout>
+            {numComments > 0 &&
+              <Tabs reviews={productReviewComments}/>
+            }
+            <ProductList allDatas={productTypePopular} loadMoreNumber={3}/>
+          </div>
+        </div>
+      }
+      <Footer />
     </>
   )
 }

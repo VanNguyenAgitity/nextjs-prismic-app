@@ -6,10 +6,10 @@ import Button from '../components/button'
 export default function SimpleSlider(props) {
   
   return (
-    <div className="relative">      
+    <div className="relative">
       <Slider {... props.settings} >
         { props.data.map(item => (
-          <div className="flex text-center bg-blueless relative" key={item.node._meta.uid}>  
+          <div className="flex text-center bg-blueless relative" key={item.node._meta.uid}>
             <h2 className="text-bluelight w-full text-center text-10xl uppercase font-playfair font-bold absolute z-10 top-20">Fashion</h2>
             {!item.node.cover &&
               <>
@@ -41,11 +41,11 @@ export default function SimpleSlider(props) {
                   objectFit="cover"
                   quality={100}
                 />
-                <style jsx>{`        
+                <style jsx>{`
                   .bg-cover {
                     /* The image used */
-                    background-image: url(${item.node.images.url});              
-                    /* Full height */        
+                    background-image: url(${item.node.images.url});
+                    /* Full height */
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;

@@ -28,7 +28,7 @@ export default function Index({ preview, allDatas, allProducts, allPattern, prop
   const productBlogPopular = allProducts.filter(({ node }) => node.blog_popular);
   return (
     <>
-      <Layout preview={preview}>
+      <Layout>
         <Head>
           <title> Be.Pro with {CMS_NAME}</title>
         </Head>

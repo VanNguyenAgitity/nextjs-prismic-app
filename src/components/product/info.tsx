@@ -15,12 +15,12 @@ const InfoProduct = ({product}) => (
         </div>
       </div>
       <div className="flex w-10/12 max-w-xs justify-between">
-        <ColorCheck/>
-        <SizeCheck/>
+        <ColorCheck color={'White'}/>
+        <SizeCheck size={'M'}/>
       </div>
-      <div className="flex w-28 items-center justify-wrap mt-4">
+      <div className="flex w-28 items-center justify-wrap mt-6">
         {product.price_sale &&
-          <span className="text-redless text-base mr-4 font-montserrat font-semibold">{`$ ${product.price_sale}`}</span>
+          <span className="text-redless text-xl mr-4 font-montserrat font-semibold">{`$ ${product.price_sale}`}</span>
         }
         {product.price_regular &&
           <span className={`${product.price_sale ? "line-through text-gray-500" : "text-blueless" } font-semibold text-xss`}>{`$ ${product.price_regular}`}</span>

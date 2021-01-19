@@ -12,20 +12,18 @@ import COLORS from '../themes/colors'
 //       {props.navList.map(nav => (
 //         <Link href={nav.path}>//           
 //             {/* <div className="Icon">{props.icon}</div> */}
-//             <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">{nav.label}</a>//           
+//             <a className="text-white uppercase font-montserrat p-2 m-2 text-xs">{nav.label}</a>
 //         </Link>
 //       ))}
 //     </div>
 //   )
 // }
 
-// import Link from 'next/link'
-
 const Nav = (props) => (
   <div className="flex">
       { props.navList.map((nav, i) => (
         <div className="flex items-center" key={i}>
-          <Link href={nav.path} key={nav.label} activeClassName="active">
+          <Link href={nav.path} key={nav.label} activeClassName= {`${props.icon ? "" : "active"}`}>
             <a className={`text-white font-montserrat font-semibold m-2 text-xs
             ${props.icon ? "py-2" : "p-2"}
             ${props.icon ? "" : "uppercase"}

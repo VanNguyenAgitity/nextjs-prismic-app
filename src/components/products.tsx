@@ -14,13 +14,12 @@ export default function Products({ allDatas, loadMoreNumber }) {
   const productTypePopular = allDatas.filter(({ node }) => node.type_popular && !node.blog_popular)
   const productTypeNewStyle = allDatas.filter(({ node }) => !node.type_popular && !node.blog_popular)
   const prodcutStyleLength = productTypeNewStyle && productTypeNewStyle.length
-
   const moreProduct = useCallback(() => {
     setLoadNum(prevRange => prevRange + loadMoreNumber);
   },[])
 
   const loadMoreProduct = useCallback(() => {
-      setLoadNumMore(prevRange => prevRange + 4);
+		setLoadNumMore(prevRange => prevRange + 4);
 	},[])
 	
 	return (
@@ -35,7 +34,9 @@ export default function Products({ allDatas, loadMoreNumber }) {
 						objectFit="contain"
 					/>
 					<span className="uppercase text-white text-xm text-center ">Popular Product</span>
-					<button className="focus:outline-none text-white text-xs font-montserrat font-normal" onClick={moreProduct}>More Product</button>
+					{!(productTypePopular && productTypePopular.length <= loadNum) &&
+						<button className="focus:outline-none text-white text-xs font-montserrat font-normal" onClick={moreProduct}>More Product</button>
+					}
 				</li>
 				{productTypePopular.slice(0, loadNum).map((p, i) => (
 					<Product key={i} product={p}/>
@@ -44,7 +45,7 @@ export default function Products({ allDatas, loadMoreNumber }) {
 					<Product key={i} product={p}/>
 				))}
 			</ul>
-			{prodcutStyleLength > 0 &&
+			{!(prodcutStyleLength <= loadNumMore) &&
 				<div className="flex m-auto w-28 mb-8">
 					<FontAwesomeIcon icon={faSyncAlt} size="sm" color='gray' className="w-4 h-4"/>
 					<button className="focus:outline-none w-full uppercase text-xs font-montserrat font-semibold" onClick={loadMoreProduct}>Load More</button>
