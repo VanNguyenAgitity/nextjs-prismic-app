@@ -6,7 +6,7 @@ const ActiveLink = ({ children, activeClassName, ...props }) => {
   const { asPath } = useRouter()
   const child = Children.only(children)
   const childClassName = child.props.className || ''
-
+  
   const className =
     asPath === props.href || asPath === props.as
       ? `${childClassName} ${activeClassName}`.trim()
@@ -15,7 +15,7 @@ const ActiveLink = ({ children, activeClassName, ...props }) => {
   return (
     <Link {...props} href={props.href}>
       {React.cloneElement(child, {
-        className: className || null,
+        className:`${(props.href === '/' || props.href === '/catalog') && !props.icon ? `${className} active` : className}` || null,
       })}
     </Link>
   )

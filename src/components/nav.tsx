@@ -23,7 +23,7 @@ const Nav = (props) => (
   <div className="flex">
       { props.navList.map((nav, i) => (
         <div className="flex items-center" key={i}>
-          <Link href={nav.path} key={nav.label} activeClassName= {`${props.icon ? "" : "active"}`}>
+          <Link icon={props.icon} href={nav.path} key={nav.label} activeClassName= {`${props.icon ? "" : "active"}`}>
             <a className={`text-white font-montserrat font-semibold m-2 text-xs
             ${props.icon ? "py-2" : "p-2"}
             ${props.icon ? "" : "uppercase"}
