@@ -17,6 +17,7 @@ import Button from '../../components/button';
 
 export default function CatalogPage({allProducts}) {
   const router = useRouter()
+  console.log('CatalogPageCatalogPageallProductsallProducts', allProducts)
   return (
     <>
       <Layout>      
@@ -28,7 +29,7 @@ export default function CatalogPage({allProducts}) {
             <BannerCatalog/>
             <div className="border h-20 w-full flex">
                 <div className="w-2/12 flex">
-                  <span className="border-r	h-full w-8/12 flex items-center justify-center text-sx font-semibold w-48 font-montserrat uppercase text-black-200">Fillter</span>
+                  <span className="border-r	h-full w-8/12 flex items-center justify-center text-sx font-semibold font-montserrat uppercase text-black-200">Fillter</span>
                   <div className="w-4/12 flex items-center justify-center">
                     <FontAwesomeIcon icon={faSync} size="2x" color='blue' className="w-4 h-4"/>
                   </div>
@@ -46,7 +47,7 @@ export default function CatalogPage({allProducts}) {
                           <FontAwesomeIcon icon={faList} size="2x" color='blue' className="w-4 h-4"/>
                         </div>
                       </div>
-                      <Button className="focus:outline-none uppercase h-full w-40 py-2" height="h-full" type="btton" bg="bg-blueless" text="View All" color="text-white" fontWeight="font-semibold" fontFamily="font-montserrat" fontSize="text-xm"/>
+                      <Button className="focus:outline-none uppercase h-full w-full py-2" height="h-full" type="btton" bg="bg-blueless" text="View All" color="text-white" fontWeight="font-semibold" fontFamily="font-montserrat" fontSize="text-xm"/>
                     </div>
                   </div>
                   

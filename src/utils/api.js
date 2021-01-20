@@ -134,6 +134,15 @@ export async function getAllDatasForProducts(previewData) {
                   author
                 }
               }
+              ... on ProductsBodyCollection {
+                type
+                primary{
+                  title_collection
+                }
+                fields{
+                  image
+                }
+              }
               __typename
             }
           }
