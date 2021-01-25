@@ -127,3 +127,15 @@ export const FeatureList = [
 		icon: require('../assets/icons/feature/support.png')
 	},
 ]
+
+export const Categories = {
+	LIFESTYLE: 'Lifestyle',
+	RUNNING: 'Running',
+	TRANINGCYM: 'Training & Cym',
+	CLOTHING: 'Clothing',
+	SCARVES: 'Scarves',
+	ACCESSORIES: 'Accessories',
+	SHOES: 'Shoes',
+	FRAGRANCE: 'Fragrance',
+	FOOTBALL: 'Football',
+}

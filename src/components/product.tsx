@@ -1,15 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import {useRouter} from 'next/router'
 
 import Button from '../components/button'
 
 export default function Product({ product }) {
   const objectFit = product.node.style_new ? 'cover' : 'contain'
   
-  
+  const router = useRouter()
+  const { sex, category } = router.query
+  console.log('sex', sex, 'category', category)
   return (
     <li className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
-      <Link href={`/product/${[product.node._meta.uid]}`}>
+      <Link href={`/product/${[product.node._meta.uid]}?sex=${product.node.sex}&category=${product.node.categories}`}>
         <a className={`flex ${product.node.style_new ? "h-full justify-end relative" : "flex-col"}`}>
           {product.node.price_sale &&
             <Button className="px-p4 absolute top-p4 right-p4" rounded="rounded" type="text" text="sale" color="text-white" fontWeight="font-semibold" fontFamily="font-montserrat" bg="bg-blueless" fontSize="text-xss"/>

@@ -15,7 +15,7 @@ import ProductPattern from '../components/product-pattern'
 import Blog from '../components/blog'
 
 export default function Index({ preview, allDatas, allProducts, allPattern, props }) {
-  console.log('allProductsallProducts', allProducts)
+  const data = allProducts
   const settings = {
 		dots: true,
     infinite: true,
@@ -23,9 +23,9 @@ export default function Index({ preview, allDatas, allProducts, allPattern, prop
     fade: true,
     cssEase: 'linear'
   }
-  const dataBannerMain = allDatas.filter(({ node }) => !node.cover);
-  const dataBannerSub = allDatas.filter(({ node }) => node.cover);
-  const productBlogPopular = allProducts.filter(({ node }) => node.blog_popular);
+  const dataBannerMain = allDatas.filter(({ node }) => !node.cover)
+  const dataBannerSub = allDatas.filter(({ node }) => node.cover)
+  const productBlogPopular = data.filter(({ node }) => node.blog_popular)
   return (
     <>
       <Layout>
@@ -35,10 +35,10 @@ export default function Index({ preview, allDatas, allProducts, allPattern, prop
         <div>
           <Slide data={dataBannerMain} setting={settings}/>
           <Feature featureList={FeatureList}/>
-          <ProductList allDatas={allProducts} loadMoreNumber={4} type={'all'}/>
+          <ProductList allDatas={data} loadMoreNumber={4} type={'all'}/>
           <Slide data={dataBannerSub} setting={settings}/>
           <ProductPattern allDatas={allPattern}/>
-          <Blog  data={productBlogPopular}/>
+          <Blog data={productBlogPopular}/>
         </div>
       </Layout>
     </>

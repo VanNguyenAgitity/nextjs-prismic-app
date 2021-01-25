@@ -69,11 +69,19 @@ export async function getAllDatasForHome(previewData) {
 
 export async function getAllDatasForProducts(previewData) {
   console.log('previewDatapreviewData333333333333', previewData)
+  //after:"YXJyYXljb25uZWN0aW9uOjA=", first:6
   const data = await fetchAPI(
-  `
-    query {
-      allProductss(sortBy: name_DESC) {
+  ` query {
+      allProductss(sortBy: date_DESC) {
+        totalCount
+        pageInfo {
+          hasPreviousPage
+          hasNextPage
+          startCursor
+          endCursor
+        }
         edges {
+          cursor
           node {
             _meta {
               uid
@@ -89,6 +97,7 @@ export async function getAllDatasForProducts(previewData) {
             color
             size
             sex
+            categories
             blog_popular
             likes
             rating_star
