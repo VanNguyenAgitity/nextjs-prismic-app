@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync, faBorderAll, faList, faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -91,11 +92,9 @@ export default function CatalogPage({allProducts}) {
                   <ul className=" w-full text-gray-700 pt-1 p-4 group-hover:block">
                     {Object.entries(Categories).map(([key, val], i) => (
                       <li className="p-1 flex justify-between w-full" key={i}>
-                        <a
-                          className="rounded-t capitalize font-montserrat font-normal text-xs text-black hover:bg-gray-200 px-4 block whitespace-no-wrap"
-                          href={`/catalog?sex=${sex}&category=${val}`}
-                          >{val}</a
-                        >
+                        <Link href={`/catalog?sex=${sex}&category=${val}`}>
+                          <a className="rounded-t capitalize font-montserrat font-normal text-xs text-black hover:bg-gray-200 px-4 block whitespace-no-wrap">{val}</a>
+                        </Link>
                         <span className="font-montserrat font-normal text-xs text-black">{allProducts.filter(({ node }) => (node.categories === val && node.sex === 'Women')).length}</span>
                       </li>
                     ))}
@@ -115,7 +114,7 @@ export default function CatalogPage({allProducts}) {
                 <div className="group inline-block relative w-full">
                   <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
                     <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
-                    <span className="ml-2 uppercase text-black text-xs">Size</span>         
+                    <span className="ml-2 uppercase text-black text-xs">Size</span>
                   </button>
                 </div>
               </div>
