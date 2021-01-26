@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync, faBorderAll, faList, faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +11,7 @@ import Layout from '../../components/layout'
 import Banner from '../../components/banner'
 import Button from '../../components/button'
 import ProductList from '../../components/products'
+import ColorCheck from '../../components/product/color-check'
 import BannerCatalog from '../../components/catalog/banner'
 
 import { getAllDatasForProducts } from '../../utils/api'
@@ -19,9 +21,18 @@ import { Categories } from '../../utils/constants'
 export default function CatalogPage({allProducts}) {
   const router = useRouter()
   const { sex, category } = router.query
-  console.log('sex333333', sex, 'category33333', category)
-  const productCategories = allProducts.filter(({ node }) => (node.categories && node.sex === sex))
-  const producLifeStyle = allProducts.filter(({ node }) => (node.categories === category && node.sex === sex))
+
+  const [valueColor, setActiveColor] = useState('White')
+  const changeColor = (color) => {
+    setActiveColor(color)
+  }
+
+  const [valueSize, setActiveSize] = useState('S')
+  const changeSize = (size) => {
+    setActiveSize(size)
+  }
+  
+  const producLifeStyle = allProducts.filter(({ node }) => (node.categories === category && node.sex === sex && node.color === valueColor && node.size === valueSize))
   const productCollection = producLifeStyle[0] && producLifeStyle[0].node
 
   const navListProduct =[
@@ -100,24 +111,51 @@ export default function CatalogPage({allProducts}) {
                     ))}
                   </ul>
                 </div>
-                
               </div>
-              <div className="w-full">
-                <div className="group inline-block relative w-full">
+                <div className="group inline-block relative w-full mb-4">
                   <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
                     <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
                     <span className="ml-2 uppercase text-black text-xs">Color</span>
                   </button>
-                </div> 
+                  <div className="flex w-10/12 max-w-xs mx-auto justify-between">
+                    <div className="flex w-full justify-between">
+                      <label className="inline-flex items-center" onClick={()=>{changeColor('White')}}>
+                        <input type="checkbox" checked={valueColor === 'White'} onChange={()=>{}}  value="white" className="form-checkbox bg-white text-white h-5 w-5 rounded-full shadow border border-solid border-gray-200"/>
+                      </label>
+                      <label className="inline-flex items-center" onClick={()=>{changeColor('Red')}}>
+                        <input type="checkbox" checked={valueColor === 'Red'} onChange={()=>{}} value="red" className="form-checkbox bg-redless text-redless h-5 w-5 shadow rounded-full"/>
+                      </label>
+                      <label className="inline-flex items-center" onClick={()=>{changeColor('Yellow')}}>
+                        <input type="checkbox" checked={valueColor === 'Yellow'} onChange={()=>{}} value="yellow" className="form-checkbox bg-yellow-400 text-yellow-400 h-5 w-5 shadow rounded-full"/>
+                      </label>
+                      <label className="inline-flex items-center" onClick={()=>{changeColor('Green')}}>
+                        <input type="checkbox" checked={valueColor === 'Green'} onChange={()=>{}} value="green" className="form-checkbox bg-green-600 text-green-600 h-5 w-5 shadow rounded-full"/>
+                      </label>
+                    </div>
+                  </div>
               </div>
-              <div className="w-full">
-                <div className="group inline-block relative w-full">
+                <div className="group inline-block relative w-full mb-4">
                   <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
                     <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
                     <span className="ml-2 uppercase text-black text-xs">Size</span>
                   </button>
+                  <div className="flex w-10/12 max-w-xs mx-auto justify-between">
+                    <div className="flex w-full justify-between border grid grid-cols-4">
+                      <label className={`${valueSize === 'S' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('S')}}>
+                        <span className="text-xs mx-auto">S</span>
+                      </label>
+                      <label className={`${valueSize === 'M' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('M')}}>
+                        <span className="text-xs mx-auto">M</span>
+                      </label>
+                      <label className={`${valueSize === 'L' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('L')}}>
+                        <span className="text-xs mx-auto">L</span>
+                      </label>
+                      <label className={`${valueSize === 'XL' ? 'bg-white shadow' : null} cursor-pointer py-2 inline-flex items-center`} onClick={()=>{changeSize('XL')}}>
+                        <span className="text-xs mx-auto">XL</span>
+                      </label>
+                    </div>
+                  </div>
                 </div>
-              </div>
             </div>
             <div className="w-9/12 p-4 border-l">
               <ProductList allDatas={producLifeStyle} loadMoreNumber={4} type={'catalog'}/>
