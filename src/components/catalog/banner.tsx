@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Button from '../../components/button'
-//import productImage from '../../assets/images/products/t-shirt-flecked.png'
 
 export default function Banner({ collection }) {
   const collectionData = collection && collection.body && collection.body.filter(({ type }) => type === 'collection')

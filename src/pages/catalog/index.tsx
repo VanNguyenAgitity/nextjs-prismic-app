@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { Pagination,  } from 'semantic-ui-react'
 import Link from 'next/link'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import { queryCatalogContent } from '../../utils/prismicQueries'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSync, faBorderAll, faList, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,16 +12,27 @@ import Layout from '../../components/layout'
 import Banner from '../../components/banner'
 import Button from '../../components/button'
 import ProductList from '../../components/products'
-import ColorCheck from '../../components/product/color-check'
 import BannerCatalog from '../../components/catalog/banner'
 
-import { getAllDatasForProducts } from '../../utils/api'
+import { getAllDatasForCatalog } from '../../utils/api'
 import { Categories } from '../../utils/constants'
 
 
-export default function CatalogPage({allProducts}) {
+export default function CatalogPage({ itemsPerPage = 9 } ) {
   const router = useRouter()
   const { sex, category } = router.query
+  const [catalogContent, setCatalogPosts] = useState([])
+  const [page, setPage] = useState(1)
+
+  // Fetch the Prismic initial Prismic content on page load
+  useEffect(() => {
+    const fetchPrismicContent = async () => {
+      const queryResponse = await queryCatalogContent()
+      const catalogContent = queryResponse.data.allProductss
+      setCatalogPosts(catalogContent.edges)
+    }
+    fetchPrismicContent()
+  }, [itemsPerPage])
 
   const [valueColor, setActiveColor] = useState('White')
   const changeColor = (color) => {
@@ -31,9 +43,17 @@ export default function CatalogPage({allProducts}) {
   const changeSize = (size) => {
     setActiveSize(size)
   }
+
   
-  const producLifeStyle = allProducts.filter(({ node }) => (node.categories === category && node.sex === sex && node.color === valueColor && node.size === valueSize))
+  const totalPosts = catalogContent.length
+  if (totalPosts < 1) return null  
+  const producLifeStyle = catalogContent.filter(({ node }) => (node.categories === category && node.sex === sex && node.color === valueColor && node.size === valueSize))
   const productCollection = producLifeStyle[0] && producLifeStyle[0].node
+
+  const firstPostIndex = (page - 1) * itemsPerPage
+  const lastPostIndex = firstPostIndex + itemsPerPage
+  const currentBlogPosts = catalogContent.slice(firstPostIndex, lastPostIndex)
+  const totalPages = Math.ceil(catalogContent.length / itemsPerPage)
 
   const navListProduct =[
     {
@@ -65,9 +85,9 @@ export default function CatalogPage({allProducts}) {
           <title>Catalog Page</title>
         </Head>
         <Banner sex={sex} navList={navListProduct}/>
-        <div className="flex flex-col w-11/12 mx-auto border -mt-20">
+        <div className="flex flex-col w-11/12 mx-auto -mt-20">
           <BannerCatalog collection={productCollection}/>
-          <div className="h-20 w-full flex border-b">
+          <div className="h-20 w-full flex border">
             <div className="w-3/12 flex">
               <span className="border-r	h-full w-8/12 flex items-center justify-center text-sx font-semibold font-montserrat uppercase text-black-200">Fillter</span>
               <div className="w-4/12 flex items-center justify-center">
@@ -92,7 +112,7 @@ export default function CatalogPage({allProducts}) {
               </div>
             </div>
           </div>
-          <div className="w-full flex">
+          <div className="w-full flex border">
             <div className="flex flex-col w-3/12">
               <div className="w-full">
                 <div className="group inline-block relative w-full">
@@ -106,7 +126,7 @@ export default function CatalogPage({allProducts}) {
                         <Link href={`/catalog?sex=${sex}&category=${val}`}>
                           <a className="rounded-t capitalize font-montserrat font-normal text-xs text-black hover:bg-gray-200 px-4 block whitespace-no-wrap">{val}</a>
                         </Link>
-                        <span className="font-montserrat font-normal text-xs text-black">{allProducts.filter(({ node }) => (node.categories === val && node.sex === 'Women')).length}</span>
+                        <span className="font-montserrat font-normal text-xs text-black">{catalogContent.filter(({ node }) => (node.categories === val && node.sex === sex)).length}</span>
                       </li>
                     ))}
                   </ul>
@@ -158,8 +178,17 @@ export default function CatalogPage({allProducts}) {
                 </div>
             </div>
             <div className="w-9/12 p-4 border-l">
-              <ProductList allDatas={producLifeStyle} loadMoreNumber={4} type={'catalog'}/>
+              <ProductList allDatas={currentBlogPosts} loadMoreNumber={4} type={'catalog'}/>
             </div>
+          </div>
+          <div className="w-full flex border">
+            <Pagination
+              activePage={page}
+              onPageChange={(event, data) => setPage(Number(data.activePage))}
+              totalPages={totalPages}
+              firstItem={null}
+              lastItem={null}
+            />
           </div>
         </div>
       </Layout>
@@ -167,9 +196,9 @@ export default function CatalogPage({allProducts}) {
   )
 }
 
-export async function getServerSideProps({previewDataProduct }) {
-  const allProducts = await getAllDatasForProducts(previewDataProduct)
-  return {
-    props: { allProducts },
-  }
-}
+// export async function getServerSideProps({previewDataProduct}) {
+//   const allProducts = await getAllDatasForCatalog(previewDataProduct)
+//   return {
+//     props: { allProducts },
+//   }
+// }

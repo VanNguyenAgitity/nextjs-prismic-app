@@ -190,3 +190,62 @@ export async function getAllDataForPattern(previewData) {
 
   return data.allPatterns.edges
 }
+
+export async function getAllDatasForCatalog(previewData) {
+  console.log('previewDatapreviewData333333333333', previewData)
+  //after:"YXJyYXljb25uZWN0aW9uOjA=", first:6
+  const data = await fetchAPI(
+  ` query {
+      allProductss(sortBy: date_DESC, after:"YXJyYXljb25uZWN0aW9uOjA=", first:6) {
+        totalCount
+        pageInfo {
+          hasPreviousPage
+          hasNextPage
+          startCursor
+          endCursor
+        }
+        edges {
+          cursor
+          node {
+            _meta {
+              uid
+              type
+            }
+            date
+            name
+            price_regular
+            price_sale
+            images
+            style_new
+            type_popular
+            color
+            size
+            sex
+            categories
+            blog_popular
+            likes
+            rating_star
+            comments
+            title
+            body {
+              ... on ProductsBodyCollection {
+                type
+                primary{
+                  title_collection
+                }
+                fields{
+                  image
+                }
+              }
+              __typename
+            }
+          }
+        }
+      }
+    }
+  `,
+    { previewData }
+  )
+  console.log('88888888888888888888888888888888222222222222222', data.allProductss.edges)
+  return data.allProductss
+}
