@@ -2,6 +2,7 @@ import * as React from 'react'
 import { AppProps } from 'next/app'
 import '../assets/styles/globals.scss'
 import '../assets/styles/custom-slide.scss'
+import '../assets/styles/custom-pagination.scss'
 
 // export default class MyApp extends React.Component<AppProps> {
 //   render() {
