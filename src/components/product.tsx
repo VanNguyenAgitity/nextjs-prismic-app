@@ -6,10 +6,9 @@ import Button from '../components/button'
 
 export default function Product({ product }) {
   const objectFit = product.node.style_new ? 'cover' : 'contain'
-  
   const router = useRouter()
   const { sex, category } = router.query
-  console.log('sex', sex, 'category', category)
+
   return (
     <li className={`border border-solid border-gray-200 ${product.node.style_new ? "col-span-3 px-p4 bg-blueless" : "p-p4 bg-white"}`}>
       <Link href={`/product/${[product.node._meta.uid]}?sex=${product.node.sex}&category=${product.node.categories}`}>
@@ -42,11 +41,11 @@ export default function Product({ product }) {
             }
             {!product.node.style_new &&
               <div className="flex flex-wrap">
-                {product.node.price_sale &&
-                  <span className="line-through text-gray-400 text-xss mr-4">{`$ ${product.node.price_sale} USD`}</span>
-                }
                 {product.node.price_regular &&
-                  <span className="text-blueless text-xss">{`$ ${product.node.price_regular} USD`}</span>
+                  <span className="line-through text-gray-400 text-xss">{`$ ${product.node.price_regular} USD`}</span>
+                }
+                 {product.node.price_sale &&
+                  <span className="text-blueless text-xss ml-4">{`$ ${product.node.price_sale} USD`}</span>
                 }
               </div>
             }

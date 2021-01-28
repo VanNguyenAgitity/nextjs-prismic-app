@@ -44,16 +44,28 @@ export default function CatalogPage({ itemsPerPage = 9 } ) {
     setActiveSize(size)
   }
 
-  
-  const totalPosts = catalogContent.length
-  if (totalPosts < 1) return null  
-  const producLifeStyle = catalogContent.filter(({ node }) => (node.categories === category && node.sex === sex && node.color === valueColor && node.size === valueSize))
-  const productCollection = producLifeStyle[0] && producLifeStyle[0].node
+  const [priceMin, setPriceMin] = useState(10)
+  const updateRangeMin = (price) => {
+    setPriceMin(price)
+  }
 
+  const [priceMax, setPriceMax] = useState(1000)
+  const updateRangeMax = (price) => {
+    setPriceMax(price)
+  }
+  const producLifeStyle = catalogContent.filter(({ node }) => (
+    (node.categories === category) &&
+    node.sex === sex &&
+    node.color === valueColor &&
+    node.size === valueSize &&
+    (priceMin <= node.price_regular && node.price_regular <= priceMax))
+  )
+  const productCollection = producLifeStyle[0] && producLifeStyle[0].node
+  const totalPosts = producLifeStyle.length
   const firstPostIndex = (page - 1) * itemsPerPage
   const lastPostIndex = firstPostIndex + itemsPerPage
-  const currentBlogPosts = catalogContent.slice(firstPostIndex, lastPostIndex)
-  const totalPages = Math.ceil(catalogContent.length / itemsPerPage)
+  const currentBlogPosts = producLifeStyle.slice(firstPostIndex, lastPostIndex)
+  const totalPages = Math.ceil(producLifeStyle.length / itemsPerPage)
 
   const navListProduct =[
     {
@@ -160,7 +172,10 @@ export default function CatalogPage({ itemsPerPage = 9 } ) {
                   <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
                   <span className="ml-2 uppercase text-black text-xs">Price Range</span>
                 </button>
-                <RangePrice/>
+                <RangePrice
+                  onChangeRangeMin={updateRangeMin}
+                  onChangeRangeMax={updateRangeMax}
+                />
               </div>
               
               <div className="group inline-block relative w-full mt-4">
@@ -187,18 +202,20 @@ export default function CatalogPage({ itemsPerPage = 9 } ) {
               </div>
             </div>
             <div className="w-9/12 p-4 border-l">
-              <ProductList allDatas={currentBlogPosts} loadMoreNumber={4} type={'catalog'}/>
+              <ProductList allDatas={producLifeStyle} loadMoreNumber={4} type={'catalog'}/>
             </div>
           </div>
-          <div className="w-full flex border">
-            <Pagination
-              activePage={page}
-              onPageChange={(event, data) => setPage(Number(data.activePage))}
-              totalPages={totalPages}
-              firstItem={null}
-              lastItem={null}
-            />
-          </div>
+          {totalPages > 1 &&
+            <div className="w-full flex border">
+              <Pagination
+                activePage={page}
+                onPageChange={(event, data) => setPage(Number(data.activePage))}
+                totalPages={totalPages}
+                firstItem={null}
+                lastItem={null}
+              />
+            </div>
+          }
         </div>
       </Layout>
     </>
