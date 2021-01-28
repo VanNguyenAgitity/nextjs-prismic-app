@@ -7,12 +7,12 @@ export default function RangePrice() {
 
 
   useEffect(()=>{
-    const eleMin = document.querySelector('.buble-min')
+    const eleMin = document.querySelector<HTMLElement>('.buble-min')
     if (eleMin) {
       eleMin.style.left = `${Number(valueMin /4) > 100 ? Number(valueMin /4) - 80 : Number(valueMin /4) - 20}px`
     }
     
-    const eleMax = document.querySelector('.buble-max')
+    const eleMax = document.querySelector<HTMLElement>('.buble-max')
     console.log('Number(valueMax /4)', Number(valueMax /4))
     if (eleMax) {      
       eleMax.style.left = `${Number(valueMax /4) > 200 ? Number(valueMax /4) - 60 : Number(valueMax /4)}px`
