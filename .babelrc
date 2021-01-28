@@ -1,4 +1,13 @@
 {
-  "presets": [ "next/babel" ],
-  "plugins": [ "inline-react-svg" ]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": { "throwIfNamespace": false }
+      }
+    ]
+  ],
+  "plugins": [ 
+    "inline-react-svg"
+  ]  
 }

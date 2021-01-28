@@ -14,7 +14,7 @@ import Button from '../../components/button'
 import ProductList from '../../components/products'
 import BannerCatalog from '../../components/catalog/banner'
 
-import { getAllDatasForCatalog } from '../../utils/api'
+import RangePrice from '../../components/catalog/range-price'
 import { Categories } from '../../utils/constants'
 
 
@@ -132,50 +132,59 @@ export default function CatalogPage({ itemsPerPage = 9 } ) {
                   </ul>
                 </div>
               </div>
-                <div className="group inline-block relative w-full mb-4">
-                  <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
-                    <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
-                    <span className="ml-2 uppercase text-black text-xs">Color</span>
-                  </button>
-                  <div className="flex w-10/12 max-w-xs mx-auto justify-between">
-                    <div className="flex w-full justify-between">
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('White')}}>
-                        <input type="checkbox" checked={valueColor === 'White'} onChange={()=>{}}  value="white" className="form-checkbox bg-white text-white h-5 w-5 rounded-full shadow border border-solid border-gray-200"/>
-                      </label>
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('Red')}}>
-                        <input type="checkbox" checked={valueColor === 'Red'} onChange={()=>{}} value="red" className="form-checkbox bg-redless text-redless h-5 w-5 shadow rounded-full"/>
-                      </label>
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('Yellow')}}>
-                        <input type="checkbox" checked={valueColor === 'Yellow'} onChange={()=>{}} value="yellow" className="form-checkbox bg-yellow-400 text-yellow-400 h-5 w-5 shadow rounded-full"/>
-                      </label>
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('Green')}}>
-                        <input type="checkbox" checked={valueColor === 'Green'} onChange={()=>{}} value="green" className="form-checkbox bg-green-600 text-green-600 h-5 w-5 shadow rounded-full"/>
-                      </label>
-                    </div>
-                  </div>
-              </div>
-                <div className="group inline-block relative w-full mb-4">
-                  <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
-                    <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
-                    <span className="ml-2 uppercase text-black text-xs">Size</span>
-                  </button>
-                  <div className="flex w-10/12 max-w-xs mx-auto justify-between">
-                    <div className="flex w-full justify-between border grid grid-cols-4">
-                      <label className={`${valueSize === 'S' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('S')}}>
-                        <span className="text-xs mx-auto">S</span>
-                      </label>
-                      <label className={`${valueSize === 'M' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('M')}}>
-                        <span className="text-xs mx-auto">M</span>
-                      </label>
-                      <label className={`${valueSize === 'L' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('L')}}>
-                        <span className="text-xs mx-auto">L</span>
-                      </label>
-                      <label className={`${valueSize === 'XL' ? 'bg-white shadow' : null} cursor-pointer py-2 inline-flex items-center`} onClick={()=>{changeSize('XL')}}>
-                        <span className="text-xs mx-auto">XL</span>
-                      </label>
-                    </div>
+              <div className="group inline-block relative w-full mb-4">
+                <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
+                  <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
+                  <span className="ml-2 uppercase text-black text-xs">Color</span>
+                </button>
+                <div className="flex w-10/12 max-w-xs mx-auto justify-between">
+                  <div className="flex w-full justify-between">
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('White')}}>
+                      <input type="checkbox" checked={valueColor === 'White'} onChange={()=>{}}  value="white" className="form-checkbox bg-white text-white h-5 w-5 rounded-full shadow border border-solid border-gray-200"/>
+                    </label>
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('Red')}}>
+                      <input type="checkbox" checked={valueColor === 'Red'} onChange={()=>{}} value="red" className="form-checkbox bg-redless text-redless h-5 w-5 shadow rounded-full"/>
+                    </label>
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('Yellow')}}>
+                      <input type="checkbox" checked={valueColor === 'Yellow'} onChange={()=>{}} value="yellow" className="form-checkbox bg-yellow-400 text-yellow-400 h-5 w-5 shadow rounded-full"/>
+                    </label>
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('Green')}}>
+                      <input type="checkbox" checked={valueColor === 'Green'} onChange={()=>{}} value="green" className="form-checkbox bg-green-600 text-green-600 h-5 w-5 shadow rounded-full"/>
+                    </label>
                   </div>
                 </div>
+              </div>
+
+              <div className="group inline-block relative w-full my-4">
+                <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 mb-4 inline-flex items-center">
+                  <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
+                  <span className="ml-2 uppercase text-black text-xs">Price Range</span>
+                </button>
+                <RangePrice/>
+              </div>
+              
+              <div className="group inline-block relative w-full mt-4">
+                <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
+                  <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
+                  <span className="ml-2 uppercase text-black text-xs">Size</span>
+                </button>
+                <div className="flex w-10/12 max-w-xs mx-auto justify-between">
+                  <div className="flex w-full justify-between border grid grid-cols-4">
+                    <label className={`${valueSize === 'S' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('S')}}>
+                      <span className="text-xs mx-auto">S</span>
+                    </label>
+                    <label className={`${valueSize === 'M' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('M')}}>
+                      <span className="text-xs mx-auto">M</span>
+                    </label>
+                    <label className={`${valueSize === 'L' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('L')}}>
+                      <span className="text-xs mx-auto">L</span>
+                    </label>
+                    <label className={`${valueSize === 'XL' ? 'bg-white shadow' : null} cursor-pointer py-2 inline-flex items-center`} onClick={()=>{changeSize('XL')}}>
+                      <span className="text-xs mx-auto">XL</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="w-9/12 p-4 border-l">
               <ProductList allDatas={currentBlogPosts} loadMoreNumber={4} type={'catalog'}/>

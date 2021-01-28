@@ -3,6 +3,7 @@ import { AppProps } from 'next/app'
 import '../assets/styles/globals.scss'
 import '../assets/styles/custom-slide.scss'
 import '../assets/styles/custom-pagination.scss'
+import '../assets/styles/custom-range.scss'
 
 // export default class MyApp extends React.Component<AppProps> {
 //   render() {
