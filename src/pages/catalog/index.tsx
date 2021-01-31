@@ -14,7 +14,7 @@ import Button from '../../components/button'
 import ProductList from '../../components/products'
 import BannerCatalog from '../../components/catalog/banner'
 
-import { getAllDatasForCatalog } from '../../utils/api'
+import RangePrice from '../../components/catalog/range-price'
 import { Categories } from '../../utils/constants'
 
 
@@ -44,16 +44,28 @@ export default function CatalogPage({ itemsPerPage = 9 } ) {
     setActiveSize(size)
   }
 
-  
-  const totalPosts = catalogContent.length
-  if (totalPosts < 1) return null  
-  const producLifeStyle = catalogContent.filter(({ node }) => (node.categories === category && node.sex === sex && node.color === valueColor && node.size === valueSize))
-  const productCollection = producLifeStyle[0] && producLifeStyle[0].node
+  const [priceMin, setPriceMin] = useState(10)
+  const updateRangeMin = (price) => {
+    setPriceMin(price)
+  }
 
+  const [priceMax, setPriceMax] = useState(1000)
+  const updateRangeMax = (price) => {
+    setPriceMax(price)
+  }
+  const producLifeStyle = catalogContent.filter(({ node }) => (
+    (node.categories === category) &&
+    node.sex === sex &&
+    node.color === valueColor &&
+    node.size === valueSize &&
+    (priceMin <= node.price_regular && node.price_regular <= priceMax))
+  )
+  const productCollection = producLifeStyle[0] && producLifeStyle[0].node
+  const totalPosts = producLifeStyle.length
   const firstPostIndex = (page - 1) * itemsPerPage
   const lastPostIndex = firstPostIndex + itemsPerPage
-  const currentBlogPosts = catalogContent.slice(firstPostIndex, lastPostIndex)
-  const totalPages = Math.ceil(catalogContent.length / itemsPerPage)
+  const currentBlogPosts = producLifeStyle.slice(firstPostIndex, lastPostIndex)
+  const totalPages = Math.ceil(producLifeStyle.length / itemsPerPage)
 
   const navListProduct =[
     {
@@ -132,64 +144,78 @@ export default function CatalogPage({ itemsPerPage = 9 } ) {
                   </ul>
                 </div>
               </div>
-                <div className="group inline-block relative w-full mb-4">
-                  <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
-                    <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
-                    <span className="ml-2 uppercase text-black text-xs">Color</span>
-                  </button>
-                  <div className="flex w-10/12 max-w-xs mx-auto justify-between">
-                    <div className="flex w-full justify-between">
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('White')}}>
-                        <input type="checkbox" checked={valueColor === 'White'} onChange={()=>{}}  value="white" className="form-checkbox bg-white text-white h-5 w-5 rounded-full shadow border border-solid border-gray-200"/>
-                      </label>
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('Red')}}>
-                        <input type="checkbox" checked={valueColor === 'Red'} onChange={()=>{}} value="red" className="form-checkbox bg-redless text-redless h-5 w-5 shadow rounded-full"/>
-                      </label>
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('Yellow')}}>
-                        <input type="checkbox" checked={valueColor === 'Yellow'} onChange={()=>{}} value="yellow" className="form-checkbox bg-yellow-400 text-yellow-400 h-5 w-5 shadow rounded-full"/>
-                      </label>
-                      <label className="inline-flex items-center" onClick={()=>{changeColor('Green')}}>
-                        <input type="checkbox" checked={valueColor === 'Green'} onChange={()=>{}} value="green" className="form-checkbox bg-green-600 text-green-600 h-5 w-5 shadow rounded-full"/>
-                      </label>
-                    </div>
-                  </div>
-              </div>
-                <div className="group inline-block relative w-full mb-4">
-                  <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
-                    <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
-                    <span className="ml-2 uppercase text-black text-xs">Size</span>
-                  </button>
-                  <div className="flex w-10/12 max-w-xs mx-auto justify-between">
-                    <div className="flex w-full justify-between border grid grid-cols-4">
-                      <label className={`${valueSize === 'S' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('S')}}>
-                        <span className="text-xs mx-auto">S</span>
-                      </label>
-                      <label className={`${valueSize === 'M' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('M')}}>
-                        <span className="text-xs mx-auto">M</span>
-                      </label>
-                      <label className={`${valueSize === 'L' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('L')}}>
-                        <span className="text-xs mx-auto">L</span>
-                      </label>
-                      <label className={`${valueSize === 'XL' ? 'bg-white shadow' : null} cursor-pointer py-2 inline-flex items-center`} onClick={()=>{changeSize('XL')}}>
-                        <span className="text-xs mx-auto">XL</span>
-                      </label>
-                    </div>
+              <div className="group inline-block relative w-full mb-4">
+                <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
+                  <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
+                  <span className="ml-2 uppercase text-black text-xs">Color</span>
+                </button>
+                <div className="flex w-10/12 max-w-xs mx-auto justify-between">
+                  <div className="flex w-full justify-between">
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('White')}}>
+                      <input type="checkbox" checked={valueColor === 'White'} onChange={()=>{}}  value="white" className="form-checkbox bg-white text-white h-5 w-5 rounded-full shadow border border-solid border-gray-200"/>
+                    </label>
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('Red')}}>
+                      <input type="checkbox" checked={valueColor === 'Red'} onChange={()=>{}} value="red" className="form-checkbox bg-redless text-redless h-5 w-5 shadow rounded-full"/>
+                    </label>
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('Yellow')}}>
+                      <input type="checkbox" checked={valueColor === 'Yellow'} onChange={()=>{}} value="yellow" className="form-checkbox bg-yellow-400 text-yellow-400 h-5 w-5 shadow rounded-full"/>
+                    </label>
+                    <label className="inline-flex items-center" onClick={()=>{changeColor('Green')}}>
+                      <input type="checkbox" checked={valueColor === 'Green'} onChange={()=>{}} value="green" className="form-checkbox bg-green-600 text-green-600 h-5 w-5 shadow rounded-full"/>
+                    </label>
                   </div>
                 </div>
+              </div>
+
+              <div className="group inline-block relative w-full my-4">
+                <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 mb-4 inline-flex items-center">
+                  <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
+                  <span className="ml-2 uppercase text-black text-xs">Price Range</span>
+                </button>
+                <RangePrice
+                  onChangeRangeMin={updateRangeMin}
+                  onChangeRangeMax={updateRangeMax}
+                />
+              </div>
+              
+              <div className="group inline-block relative w-full mt-4">
+                <button className=" w-full focus:outline-none text-gray-700 font-semibold py-2 px-4 inline-flex items-center">
+                  <FontAwesomeIcon icon={faChevronDown} size="2x" color='black' className="w-3 h-3"/>
+                  <span className="ml-2 uppercase text-black text-xs">Size</span>
+                </button>
+                <div className="flex w-10/12 max-w-xs mx-auto justify-between">
+                  <div className="flex w-full justify-between border grid grid-cols-4">
+                    <label className={`${valueSize === 'S' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('S')}}>
+                      <span className="text-xs mx-auto">S</span>
+                    </label>
+                    <label className={`${valueSize === 'M' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('M')}}>
+                      <span className="text-xs mx-auto">M</span>
+                    </label>
+                    <label className={`${valueSize === 'L' ? 'bg-white shadow' : null} cursor-pointer py-2 border-r inline-flex items-center`} onClick={()=>{changeSize('L')}}>
+                      <span className="text-xs mx-auto">L</span>
+                    </label>
+                    <label className={`${valueSize === 'XL' ? 'bg-white shadow' : null} cursor-pointer py-2 inline-flex items-center`} onClick={()=>{changeSize('XL')}}>
+                      <span className="text-xs mx-auto">XL</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="w-9/12 p-4 border-l">
-              <ProductList allDatas={currentBlogPosts} loadMoreNumber={4} type={'catalog'}/>
+              <ProductList allDatas={producLifeStyle} loadMoreNumber={4} type={'catalog'}/>
             </div>
           </div>
-          <div className="w-full flex border">
-            <Pagination
-              activePage={page}
-              onPageChange={(event, data) => setPage(Number(data.activePage))}
-              totalPages={totalPages}
-              firstItem={null}
-              lastItem={null}
-            />
-          </div>
+          {totalPages > 1 &&
+            <div className="w-full flex border">
+              <Pagination
+                activePage={page}
+                onPageChange={(event, data) => setPage(Number(data.activePage))}
+                totalPages={totalPages}
+                firstItem={null}
+                lastItem={null}
+              />
+            </div>
+          }
         </div>
       </Layout>
     </>
